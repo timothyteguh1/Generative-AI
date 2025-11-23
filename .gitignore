@@ -1,0 +1,7 @@
+# Abaikan folder virtual environment (karena ukurannya besar)
+venv/
+__pycache__/
+
+# PENTING: Abaikan file rahasia
+config.py
+.env
