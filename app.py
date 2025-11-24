@@ -7,6 +7,7 @@ try:
     from agents.planner import generate_recipe_plan
     from agents.vision import evaluate_cooking_step
     from agents.consultant import ask_chef_consultant
+    from agents.nutritionist import analyze_nutrition # <--- TAMBAHAN 1: Import Agent Baru
 except ImportError:
     st.error("⚠️ Folder 'agents' belum siap.")
     st.stop()
@@ -124,76 +125,6 @@ st.markdown("""
     /* Sembunyikan elemen mengganggu */
     #MainMenu, footer, header {visibility: hidden;}
     
-/* ============================================= */
-    /* 5. FIX TOTAL UPLOAD BOX & EXPANDER (THEME)    */
-    /* ============================================= */
-
-    /* A. HEADER EXPANDER (Judul 'Upload Bukti Masak') */
-    /* Ini yang mengubah kotak hitam menjadi Putih/Oranye */
-    .streamlit-expanderHeader {
-        background-color: #FFFFFF !important;      /* GANTI: Latar Putih */
-        color: #D35400 !important;                 /* GANTI: Teks Oranye Bata */
-        border: 1px solid #F39C12 !important;      /* GANTI: Garis Pinggir Oranye */
-        border-radius: 12px !important;            /* Sudut membulat */
-        font-family: 'Outfit', sans-serif !important;
-        font-weight: 600 !important;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
-    }
-    
-    /* Efek saat mouse di atas judul (Hover) */
-    .streamlit-expanderHeader:hover {
-        background-color: #FFF3E0 !important;      /* Jadi Cream saat disentuh */
-        color: #E65100 !important;                 /* Teks jadi lebih gelap */
-        border-color: #E65100 !important;
-    }
-    
-    /* Ikon Panah Kecil di Kiri Judul */
-    .streamlit-expanderHeader svg {
-        color: #D35400 !important;
-        fill: #D35400 !important;
-    }
-    
-    /* B. AREA UPLOAD UTAMA (Kotak Drag & Drop di dalamnya) */
-    [data-testid="stFileUploader"] {
-        background-color: #FFF8E1 !important;      /* Latar Cream Kekuningan */
-        border: 2px dashed #D35400 !important;     /* Garis Putus-putus Oranye */
-        border-radius: 15px !important;
-        padding: 15px !important;
-        margin-top: 10px !important;
-    }
-
-    /* Memastikan bagian dalam transparan (Hapus sisa hitam) */
-    [data-testid="stFileUploader"] section {
-        background-color: transparent !important;
-    }
-    
-    /* C. TEKS DI DALAM UPLOAD BOX */
-    [data-testid="stFileUploader"] div,
-    [data-testid="stFileUploader"] span,
-    [data-testid="stFileUploader"] small,
-    [data-testid="stFileUploader"] label {
-        color: #5D4037 !important;                 /* Coklat Tua agar kontras */
-        font-family: 'Outfit', sans-serif !important;
-    }
-    
-    /* Ikon Awan (Cloud Icon) */
-    [data-testid="stFileUploader"] svg {
-        color: #D35400 !important;
-    }
-
-    /* D. TOMBOL 'BROWSE FILES' */
-    [data-testid="stFileUploader"] button {
-        background-color: #D35400 !important;      /* Tombol Oranye */
-        color: #FFFFFF !important;                 /* Teks Putih */
-        border: none !important;
-        border-radius: 8px !important;
-        font-weight: 500 !important;
-    }
-    
-    [data-testid="stFileUploader"] button:hover {
-        background-color: #BF360C !important;      /* Efek Hover Gelap */
-        box-shadow: 0 2px 8px rgba(211, 84, 0, 0.3) !important;
-    }
     /* ============================================= */
     /* FIX HEADER EXPANDER (AGAR TIDAK HITAM SAAT DIBUKA) */
     /* ============================================= */
@@ -226,6 +157,18 @@ st.markdown("""
         color: #D35400 !important;
         fill: #D35400 !important;
     }
+
+    /* TAMBAHAN 2: CSS KHUSUS KARTU NUTRISI (Agar sesuai tema) */
+    .nutrition-card {
+        background: #F1F8E9; /* Hijau Sangat Muda */
+        padding: 20px; 
+        border-radius: 20px;
+        border: 1px dashed #66BB6A; /* Garis Hijau */
+        margin-top: 20px;
+        text-align: center;
+    }
+    .nutri-value { font-size: 1.2rem; font-weight: 700; color: #2E7D32 !important; }
+    .nutri-label { font-size: 0.8rem; color: #558B2F !important; text-transform: uppercase; letter-spacing: 1px;}
     </style>
 """, unsafe_allow_html=True)
 
@@ -234,6 +177,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Halo! Saya ChefBot. Mau masak apa hari ini?"}]
 if "recipe" not in st.session_state:
     st.session_state.recipe = None
+if "nutrition" not in st.session_state: # <--- TAMBAHAN 3: State Nutrisi
+    st.session_state.nutrition = None
 if "step_index" not in st.session_state:
     st.session_state.step_index = 0
 
@@ -268,11 +213,17 @@ if not st.session_state.recipe:
         with st.chat_message("user"): 
             st.markdown(user_input)
         
+        # 1. Generate Resep
         with st.spinner("🔥 Chef sedang meracik resep..."):
             recipe_data = generate_recipe_plan(user_input)
             
         if recipe_data:
+            # 2. Generate Nutrisi (TAMBAHAN 4: Panggil Agent Nutrisi)
+            with st.spinner("🍎 Ahli Gizi sedang menghitung kalori..."):
+                nutri_data = analyze_nutrition(recipe_data)
+
             st.session_state.recipe = recipe_data
+            st.session_state.nutrition = nutri_data # Simpan data nutrisi
             st.session_state.step_index = 0
             st.session_state.messages = []
             st.rerun()
@@ -280,6 +231,7 @@ if not st.session_state.recipe:
 # MODE 2: DASHBOARD MASAK
 elif st.session_state.recipe:
     recipe = st.session_state.recipe
+    nutri = st.session_state.nutrition # Ambil data nutrisi
     current_step_idx = st.session_state.step_index
     total_steps = len(recipe['steps'])
     current_instruction = recipe['steps'][current_step_idx]
@@ -288,8 +240,9 @@ elif st.session_state.recipe:
 
     col1, col2 = st.columns([1, 2], gap="large")
 
-    # KIRI: Bahan
+    # KIRI: Bahan & Nutrisi
     with col1:
+        # Kartu Bahan
         ing_list = "".join([f"<li style='margin-bottom:8px; color:#444;'>{i}</li>" for i in recipe['ingredients']])
         st.markdown(f"""
         <div class="recipe-card">
@@ -297,6 +250,38 @@ elif st.session_state.recipe:
             <ul style="padding-left:20px;">{ing_list}</ul>
         </div>
         """, unsafe_allow_html=True)
+
+        # TAMBAHAN 5: Kartu Nutrisi (Ditampilkan jika ada data)
+        if nutri:
+            st.markdown(f"""
+            <div class="nutrition-card">
+                <h4 style="color:#2E7D32 !important; margin-top:0;">🍎 Info Gizi (Per Porsi)</h4>
+                <div style="display:flex; justify-content:space-around; margin-top:15px;">
+                    <div>
+                        <div class="nutri-value">{nutri.get('calories', '-')}</div>
+                        <div class="nutri-label">Kalori</div>
+                    </div>
+                    <div>
+                        <div class="nutri-value">{nutri.get('protein', '-')}</div>
+                        <div class="nutri-label">Protein</div>
+                    </div>
+                </div>
+                <div style="display:flex; justify-content:space-around; margin-top:10px;">
+                    <div>
+                        <div class="nutri-value">{nutri.get('carbs', '-')}</div>
+                        <div class="nutri-label">Karbo</div>
+                    </div>
+                    <div>
+                        <div class="nutri-value">{nutri.get('fats', '-')}</div>
+                        <div class="nutri-label">Lemak</div>
+                    </div>
+                </div>
+                <hr style="border-top: 1px dashed #A5D6A7; margin: 15px 0;">
+                <p style="font-size:0.9rem; font-style:italic; color:#33691E !important; margin:0;">
+                    💡 "{nutri.get('health_tip', 'Makanlah dengan bijak!')}"
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
     # KANAN: Langkah
     with col2:
@@ -331,6 +316,7 @@ elif st.session_state.recipe:
                         if st.session_state.step_index >= total_steps:
                             st.balloons()
                             st.session_state.recipe = None
+                            st.session_state.nutrition = None # Reset nutrisi
                             st.session_state.messages = [{"role": "assistant", "content": "Selesai! Selamat makan."}]
                         st.rerun()
                     else:
@@ -355,5 +341,6 @@ elif st.session_state.recipe:
         
     if st.button("🔄 Reset"):
         st.session_state.recipe = None
+        st.session_state.nutrition = None
         st.session_state.messages = []
         st.rerun()
