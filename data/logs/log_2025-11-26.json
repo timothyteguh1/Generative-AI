@@ -1,0 +1,12 @@
+[
+    {
+        "timestamp": "2025-11-26 14:08:48",
+        "action": "generate_recipe",
+        "prompt": "nasi goreng"
+    },
+    {
+        "timestamp": "2025-11-26 14:28:56",
+        "action": "generate_recipe",
+        "prompt": "dasdwdadaw awd"
+    }
+]
