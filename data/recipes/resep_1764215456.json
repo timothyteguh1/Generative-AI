@@ -1,0 +1,50 @@
+{
+    "dish": "Nasi Goreng",
+    "ingredients": [
+        "500 gr nasi putih dingin (sisa semalam lebih baik)",
+        "2 butir telur",
+        "3 siung bawang merah",
+        "2 siung bawang putih",
+        "3 buah cabai rawit (sesuai selera, opsional)",
+        "2 sdm kecap manis",
+        "1 sdm saus tiram",
+        "1/2 sdt garam",
+        "1/4 sdt lada putih bubuk",
+        "2 sdm minyak goreng",
+        "Pelengkap: bawang goreng, irisan timun, kerupuk"
+    ],
+    "steps": [
+        {
+            "instruction": "Cincang halus bawang merah, bawang putih, dan cabai rawit (jika menggunakan).",
+            "visual_keyword": "chopping red onion garlic chili photorealistic"
+        },
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan dengan api sedang.",
+            "visual_keyword": "heating oil in wok photorealistic"
+        },
+        {
+            "instruction": "Masukkan bawang merah, bawang putih, dan cabai rawit cincang. Tumis hingga harum dan layu.",
+            "visual_keyword": "sauteing garlic onion chili in wok photorealistic"
+        },
+        {
+            "instruction": "Sisihkan bumbu ke pinggir wajan. Masukkan telur, orak-arik hingga matang. Campurkan dengan bumbu.",
+            "visual_keyword": "scrambling egg in wok with spices photorealistic"
+        },
+        {
+            "instruction": "Masukkan nasi putih dingin ke dalam wajan. Aduk rata, pastikan tidak ada gumpalan nasi.",
+            "visual_keyword": "adding cold rice to wok photorealistic"
+        },
+        {
+            "instruction": "Tambahkan kecap manis, saus tiram, garam, dan lada putih bubuk. Aduk kembali hingga semua bumbu tercampur rata dan nasi panas.",
+            "visual_keyword": "mixing rice with soy sauce and spices in wok photorealistic"
+        },
+        {
+            "instruction": "Koreksi rasa, tambahkan bumbu jika perlu.",
+            "visual_keyword": "taste testing fried rice photorealistic"
+        },
+        {
+            "instruction": "Angkat nasi goreng dan sajikan hangat. Taburi dengan bawang goreng dan lengkapi dengan irisan timun serta kerupuk.",
+            "visual_keyword": "serving fried rice with garnish photorealistic"
+        }
+    ]
+}

@@ -9,8 +9,33 @@ def render_header():
     """, unsafe_allow_html=True)
 
 def render_chat_message(role, content):
-    with st.chat_message(role):
-        st.markdown(content)
+    """
+    Render chat custom dengan gaya Card/Box modern
+    """
+    if role == "user":
+        # Layout User (Kanan)
+        avatar = "👤"
+        row_class = "row-user"
+        bubble_class = "bubble-user"
+        avatar_class = "avatar-user"
+        align_style = "text-align: right;" # Text rata kanan
+    else:
+        # Layout Bot (Kiri)
+        avatar = "👨‍🍳"
+        row_class = "row-bot"
+        bubble_class = "bubble-bot"
+        avatar_class = "avatar-bot"
+        align_style = "text-align: left;" # Text rata kiri
+
+    # Render HTML Custom
+    st.markdown(f"""
+    <div class="chat-row {row_class}">
+        <div class="chat-avatar {avatar_class}">{avatar}</div>
+        <div class="chat-bubble {bubble_class}">
+            <div style="{align_style}">{content}</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 def render_ingredient_card(ingredients):
     items = "".join([f"<li style='margin-bottom:5px;'>{i}</li>" for i in ingredients])
