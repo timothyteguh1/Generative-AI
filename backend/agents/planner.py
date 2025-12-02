@@ -6,6 +6,10 @@ configure_ai()
 try: model = genai.GenerativeModel('models/gemini-2.5-flash')
 except: model = genai.GenerativeModel('models/gemini-pro')
 
+CYAN = "\033[96m"
+RESET = "\033[0m"
+
+
 def clean_json(text):
     try:
         s = text.find('{'); e = text.rfind('}')
@@ -13,6 +17,7 @@ def clean_json(text):
     except: return text
 
 def generate_recipe_plan(dish):
+    print(f"{CYAN}[Planner AGENT] 🛒 sedang membuat resep makanan...{RESET}")
     prompt = f"""
     Buat resep JSON untuk: {dish}. Bahasa Indonesia.
     JSON WAJIB:

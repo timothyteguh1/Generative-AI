@@ -1,0 +1,55 @@
+{
+    "dish": "Nasi Goreng",
+    "ingredients": [
+        "2 piring nasi putih dingin (sisa semalam lebih baik)",
+        "2 butir telur",
+        "3 sdm minyak goreng",
+        "100 gram dada ayam, potong dadu kecil (opsional)",
+        "50 gram sawi hijau atau kol, iris tipis",
+        "Bumbu Halus:",
+        "4 siung bawang merah",
+        "2 siung bawang putih",
+        "3-5 buah cabai rawit merah (sesuaikan selera pedas)",
+        "1/2 sdt terasi bakar (opsional, untuk aroma khas)",
+        "Bumbu Pelengkap:",
+        "2 sdm kecap manis",
+        "1 sdt garam",
+        "1/2 sdt merica bubuk",
+        "Bawang goreng untuk taburan (opsional)",
+        "Kerupuk dan acar timun untuk pelengkap (opsional)"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan bumbu halus: Haluskan bawang merah, bawang putih, cabai rawit, dan terasi (jika menggunakan) menggunakan ulekan atau blender hingga benar-benar halus.",
+            "visual_keyword": "pounding spices pestle mortar photorealistic"
+        },
+        {
+            "instruction": "Panaskan 1 sdm minyak goreng dalam wajan atau penggorengan. Masukkan telur, orak-arik hingga matang, lalu sisihkan.",
+            "visual_keyword": "scrambling eggs pan photorealistic"
+        },
+        {
+            "instruction": "Tambahkan sisa minyak goreng (2 sdm) ke wajan. Tumis bumbu halus hingga harum dan matang, sekitar 2-3 menit.",
+            "visual_keyword": "saut\u00e9ing aromatics wok photorealistic"
+        },
+        {
+            "instruction": "Masukkan potongan dada ayam (jika menggunakan), masak hingga berubah warna dan matang. Kemudian masukkan sawi hijau atau kol, aduk hingga sedikit layu.",
+            "visual_keyword": "cooking chicken and vegetables wok photorealistic"
+        },
+        {
+            "instruction": "Masukkan nasi putih dingin ke dalam wajan. Aduk rata dengan bumbu dan bahan lainnya hingga nasi tercampur sempurna.",
+            "visual_keyword": "stirring rice wok photorealistic"
+        },
+        {
+            "instruction": "Tambahkan kecap manis, garam, dan merica bubuk. Aduk terus hingga bumbu meresap rata ke dalam nasi dan nasi sedikit kering (tidak menggumpal).",
+            "visual_keyword": "seasoning fried rice wok photorealistic"
+        },
+        {
+            "instruction": "Masukkan kembali telur orak-arik yang sudah disisihkan. Aduk sebentar hingga tercampur rata.",
+            "visual_keyword": "combining scrambled eggs fried rice wok photorealistic"
+        },
+        {
+            "instruction": "Koreksi rasa. Jika sudah pas, angkat dan sajikan nasi goreng selagi hangat. Taburi dengan bawang goreng dan lengkapi dengan kerupuk serta acar timun jika suka.",
+            "visual_keyword": "serving fried rice with garnish photorealistic"
+        }
+    ]
+}

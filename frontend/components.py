@@ -82,3 +82,82 @@ def render_step_card(idx, total, instruction, visual_key):
         <p style="font-size:1.2rem; line-height:1.5;">{instruction}</p>
     </div>
     """, unsafe_allow_html=True)
+    
+    
+def render_shopping_card(shopping_list):
+    if not shopping_list: return
+
+    # CSS Khusus Tombol Belanja
+    st.markdown("""
+    <style>
+        .shop-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #F0F0F0;
+        }
+        .shop-name {
+            font-weight: 600;
+            color: #2C3E50;
+            font-size: 0.95rem;
+        }
+        .shop-cat {
+            font-size: 0.75rem;
+            color: #95A5A6;
+            background: #F4F6F7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        .shop-btn {
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        .btn-toped {
+            background-color: #E5F9F1; /* Hijau Pudar Toped */
+            color: #03AC0E !important; 
+            border: 1px solid #03AC0E;
+        }
+        .btn-toped:hover { background-color: #03AC0E; color: white !important; }
+        
+        .btn-shopee {
+            background-color: #FFF0F0; /* Oranye Pudar Shopee */
+            color: #EE4D2D !important;
+            border: 1px solid #EE4D2D;
+        }
+        .btn-shopee:hover { background-color: #EE4D2D; color: white !important; }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Header Card
+    st.markdown("""
+    <div class="info-card" style="border: 1px solid #F0F0F0;">
+        <div class="card-header">🛒 Belanja Bahan</div>
+        <p style="font-size:0.9rem; color:#7f8c8d !important; margin-bottom:15px;">
+            Klik tombol untuk cari harga termurah di marketplace:
+        </p>
+    """, unsafe_allow_html=True)
+
+    # Render List Bahan
+    for item in shopping_list:
+        st.markdown(f"""
+        <div class="shop-row">
+            <div>
+                <span class="shop-name">{item['name']}</span>
+                <span class="shop-cat">{item['category']}</span>
+            </div>
+            <div>
+                <a href="{item['link_toped']}" target="_blank" class="shop-btn btn-toped">Tokopedia</a>
+                <a href="{item['link_shopee']}" target="_blank" class="shop-btn btn-shopee">Shopee</a>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("</div>", unsafe_allow_html=True)

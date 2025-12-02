@@ -5,7 +5,7 @@ import time
 # --- IMPORTS ---
 from config import configure_ai, setup_folders
 from frontend.styles import load_css
-from frontend.components import render_header, render_chat_message, render_ingredient_card, render_nutrition_card, render_step_card
+from frontend.components import render_header, render_chat_message, render_ingredient_card, render_nutrition_card, render_step_card , render_shopping_card
 from backend.data_manager import save_recipe
 
 # Import Agents
@@ -14,6 +14,7 @@ try:
     from backend.agents.nutritionist import analyze_nutrition
     from backend.agents.vision import evaluate_cooking_step
     from backend.agents.consultant import ask_chef_consultant
+    from backend.agents.shopper import generate_shopping_list
 except ImportError:
     st.error("⚠️ Folder backend/agents belum lengkap.")
     st.stop()
@@ -29,6 +30,7 @@ if "recipe" not in st.session_state:
     st.session_state.recipe = None
     st.session_state.nutrition = None
     st.session_state.step_index = 0
+    st.session_state.shopping = None
     st.session_state.messages = [{"role": "assistant", "content": "Halo! ChefBot siap bantu. Mau masak apa hari ini?"}]
 
 # --- HEADER ---
@@ -60,8 +62,12 @@ if not st.session_state.recipe:
         if recipe_data:
             with st.spinner("🍎 Menghitung gizi..."):
                 nutri_data = analyze_nutrition(recipe_data)
-            
-            save_recipe(recipe_data) # Simpan Data
+            with st.spinner("🛒 Mencari bahan belanja..."):
+                shopping_data = generate_shopping_list(recipe_data['ingredients'])
+                st.session_state.shopping = shopping_data
+                
+            with st.spinner("💾 Menyimpan resep..."):
+                save_recipe(recipe_data) # Simpan Data
             
             st.session_state.recipe = recipe_data
             st.session_state.nutrition = nutri_data
@@ -91,6 +97,8 @@ elif st.session_state.recipe:
     with col1:
         render_ingredient_card(recipe['ingredients'])
         render_nutrition_card(st.session_state.nutrition)
+        st.write("") # Spacer dikit
+        render_shopping_card(st.session_state.shopping)
 
     # KOLOM KANAN
     with col2:

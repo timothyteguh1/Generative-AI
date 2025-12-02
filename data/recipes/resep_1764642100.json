@@ -1,0 +1,52 @@
+{
+    "dish": "Nasi Goreng",
+    "ingredients": [
+        "Nasi putih dingin (2 porsi)",
+        "Minyak goreng (2 sdm)",
+        "Bawang merah (3 siung, iris tipis)",
+        "Bawang putih (2 siung, cincang halus)",
+        "Cabai rawit (2-3 buah, iris serong, sesuaikan selera)",
+        "Telur ayam (1 butir)",
+        "Ayam suwir atau udang (50 gram, opsional)",
+        "Sawi hijau (2 lembar, potong-potong)",
+        "Kecap manis (2 sdm)",
+        "Saus tiram (1 sdm)",
+        "Garam (secukupnya)",
+        "Merica bubuk (secukupnya)",
+        "Bawang goreng (untuk taburan, opsional)"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan. Cincang bawang merah, bawang putih, dan cabai rawit. Potong sawi hijau.",
+            "visual_keyword": "preparing ingredients for fried rice"
+        },
+        {
+            "instruction": "Panaskan sedikit minyak di wajan, masukkan telur. Buat orak-arik hingga matang, lalu sisihkan.",
+            "visual_keyword": "scrambling egg in wok"
+        },
+        {
+            "instruction": "Dengan sisa minyak di wajan (atau tambahkan sedikit lagi jika perlu), tumis bawang merah, bawang putih, dan cabai rawit hingga harum.",
+            "visual_keyword": "saut\u00e9ing shallots garlic chili"
+        },
+        {
+            "instruction": "Masukkan ayam suwir atau udang (jika menggunakan protein tambahan), masak hingga berubah warna. Tambahkan sawi hijau, masak hingga sedikit layu.",
+            "visual_keyword": "stir-frying chicken and vegetables"
+        },
+        {
+            "instruction": "Masukkan nasi putih dingin ke dalam wajan. Aduk rata dengan bumbu dan bahan lainnya.",
+            "visual_keyword": "adding rice to wok"
+        },
+        {
+            "instruction": "Tambahkan kecap manis, saus tiram, garam, dan merica bubuk. Aduk cepat hingga semua bumbu tercampur rata dan nasi panas sempurna.",
+            "visual_keyword": "seasoning fried rice"
+        },
+        {
+            "instruction": "Masukkan kembali telur orak-arik ke dalam nasi goreng, aduk sebentar hingga tercampur rata.",
+            "visual_keyword": "mixing scrambled egg into fried rice"
+        },
+        {
+            "instruction": "Sajikan nasi goreng selagi hangat. Taburi dengan bawang goreng jika suka.",
+            "visual_keyword": "serving nasi goreng with fried shallots"
+        }
+    ]
+}
