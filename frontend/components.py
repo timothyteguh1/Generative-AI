@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 def render_header():
     st.markdown("""
@@ -68,21 +69,50 @@ def render_nutrition_card(nutri):
     </div>
     """, unsafe_allow_html=True)
 
-def render_step_card(idx, total, instruction, visual_key):
-    # Gambar AI Otomatis
-    img_url = f"https://image.pollinations.ai/prompt/{visual_key.replace(' ', '%20')}%20food%20photography?width=800&height=400&nologo=true"
+def render_step_card(idx, total, instruction, image_path):
+    """
+    Render kartu langkah menggunakan GAMBAR LOKAL.
+    """
     
-    # Render Gambar
-    st.image(img_url, use_container_width=True)
-    
-    # Render Teks Langkah
     st.markdown(f"""
-    <div class="info-card" style="border-top: 4px solid #D35400; margin-top:15px;">
-        <div class="card-header">🔥 Langkah {idx + 1} dari {total}</div>
-        <p style="font-size:1.2rem; line-height:1.5;">{instruction}</p>
-    </div>
+    <div style="
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        overflow: hidden;
+        border: 1px solid #E0E0E0;
+        margin-bottom: 20px;
+    ">
+        <div style="
+            background: #D35400; 
+            color: white; 
+            padding: 8px 16px; 
+            font-weight: bold;
+            display: flex; justify-content: space-between;
+        ">
+            <span>🔥 Langkah {idx + 1}</span>
+            <span>{idx + 1}/{total}</span>
+        </div>
     """, unsafe_allow_html=True)
     
+    # --- LOGIKA GAMBAR LOKAL ---
+    if image_path and os.path.exists(image_path):
+        # Tampilkan gambar dari file lokal
+        st.image(image_path, use_container_width=True)
+    else:
+        # Placeholder jika gambar gagal download
+        st.warning(f"⚠️ Gambar tidak ditemukan: {image_path}")
+        st.markdown(f"<div style='height:200px; background:#eee; display:flex; align-items:center; justify-content:center; color:#888;'>No Image Available</div>", unsafe_allow_html=True)
+    
+    # Render Teks
+    st.markdown(f"""
+        <div style="padding: 20px;">
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; margin: 0;">
+                {instruction}
+            </p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
 def render_shopping_card(shopping_list):
     if not shopping_list: return
