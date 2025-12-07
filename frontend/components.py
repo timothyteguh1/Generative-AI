@@ -117,48 +117,75 @@ def render_step_card(idx, total, instruction, image_path):
 def render_shopping_card(shopping_list):
     if not shopping_list: return
 
-    # CSS Khusus Tombol Belanja
+    # CSS Khusus Tombol Belanja & Layout Rapi
     st.markdown("""
     <style>
         .shop-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #F0F0F0;
+            gap: 15px; /* Jarak antar teks dan tombol */
         }
+        
+        /* Container Teks (Kiri) */
+        .shop-info-col {
+            flex-grow: 1; /* Mengisi ruang kosong */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
         .shop-name {
             font-weight: 600;
             color: #2C3E50;
             font-size: 0.95rem;
+            display: block;
+            margin-bottom: 4px;
         }
+        
         .shop-cat {
-            font-size: 0.75rem;
-            color: #95A5A6;
+            font-size: 0.7rem;
+            color: #7f8c8d;
             background: #F4F6F7;
             padding: 2px 8px;
             border-radius: 4px;
-            margin-left: 8px;
+            display: inline-block;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+
+        /* Container Tombol (Kanan) - Fixed Width agar Rata */
+        .shop-actions-col {
+            flex-shrink: 0; /* Jangan mengecil */
+            display: flex;
+            gap: 5px;
+        }
+
         .shop-btn {
             text-decoration: none;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 6px;
             font-size: 0.8rem;
             font-weight: 600;
             transition: 0.2s;
-            display: inline-block;
-            margin-left: 5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap; /* Mencegah teks tombol turun baris */
         }
+        
         .btn-toped {
-            background-color: #E5F9F1; /* Hijau Pudar Toped */
+            background-color: #E5F9F1;
             color: #03AC0E !important; 
             border: 1px solid #03AC0E;
         }
         .btn-toped:hover { background-color: #03AC0E; color: white !important; }
         
         .btn-shopee {
-            background-color: #FFF0F0; /* Oranye Pudar Shopee */
+            background-color: #FFF0F0;
             color: #EE4D2D !important;
             border: 1px solid #EE4D2D;
         }
@@ -171,7 +198,7 @@ def render_shopping_card(shopping_list):
     <div class="info-card" style="border: 1px solid #F0F0F0;">
         <div class="card-header">🛒 Belanja Bahan</div>
         <p style="font-size:0.9rem; color:#7f8c8d !important; margin-bottom:15px;">
-            Klik tombol untuk cari harga termurah di marketplace:
+            Daftar belanja otomatis (Klik untuk beli):
         </p>
     """, unsafe_allow_html=True)
 
@@ -179,11 +206,11 @@ def render_shopping_card(shopping_list):
     for item in shopping_list:
         st.markdown(f"""
         <div class="shop-row">
-            <div>
+            <div class="shop-info-col">
                 <span class="shop-name">{item['name']}</span>
                 <span class="shop-cat">{item['category']}</span>
             </div>
-            <div>
+            <div class="shop-actions-col">
                 <a href="{item['link_toped']}" target="_blank" class="shop-btn btn-toped">Tokopedia</a>
                 <a href="{item['link_shopee']}" target="_blank" class="shop-btn btn-shopee">Shopee</a>
             </div>

@@ -1,0 +1,108 @@
+{
+    "dish": "nasi padang",
+    "ingredients": [
+        "Beras",
+        "Air",
+        "Daging sapi (potongan rendang)",
+        "Ayam negeri/kampung (potongan)",
+        "Nangka muda (potongan)",
+        "Santan kental",
+        "Santan encer",
+        "Minyak goreng",
+        "Air kelapa (untuk ayam pop)",
+        "Bawang merah",
+        "Bawang putih",
+        "Cabai merah keriting",
+        "Cabai rawit merah (sesuai selera)",
+        "Cabai hijau besar",
+        "Cabai rawit hijau (sesuai selera)",
+        "Kemiri sangrai",
+        "Jahe",
+        "Lengkuas",
+        "Kunyit",
+        "Ketumbar bubuk",
+        "Jintan bubuk",
+        "Merica butiran",
+        "Daun salam",
+        "Daun jeruk",
+        "Daun kunyit (untuk rendang)",
+        "Serai (memarkan)",
+        "Asam kandis (gelugur)",
+        "Garam",
+        "Gula merah",
+        "Gula pasir",
+        "Tomat hijau",
+        "Jeruk nipis",
+        "Daun singkong (pelengkap)"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan bumbu halus untuk Rendang: Haluskan bawang merah, bawang putih, cabai merah, jahe, lengkuas, kunyit, kemiri, ketumbar, jintan, merica.",
+            "image_path": "saved_images\\nasi_padang\\step_1.jpg"
+        },
+        {
+            "instruction": "Siapkan bumbu halus untuk Ayam Pop: Haluskan bawang merah, bawang putih, kemiri, jahe, lengkuas, ketumbar, jintan.",
+            "image_path": "saved_images\\nasi_padang\\step_2.jpg"
+        },
+        {
+            "instruction": "Siapkan bumbu halus untuk Gulai Nangka: Haluskan bawang merah, bawang putih, cabai merah, kemiri, kunyit, jahe, lengkuas, ketumbar, jintan, merica.",
+            "image_path": "saved_images\\nasi_padang\\step_3.jpg"
+        },
+        {
+            "instruction": "Masak nasi putih: Cuci bersih beras, masak dengan air sesuai takaran di rice cooker atau panci hingga matang.",
+            "image_path": "saved_images\\nasi_padang\\step_4.jpg"
+        },
+        {
+            "instruction": "Membuat Rendang Sapi: Tumis bumbu halus rendang hingga harum. Masukkan potongan daging sapi, aduk hingga berubah warna.",
+            "image_path": "saved_images\\nasi_padang\\step_5.jpg"
+        },
+        {
+            "instruction": "Tambahkan santan encer, daun kunyit, daun jeruk, serai, asam kandis, garam, dan gula merah. Masak hingga mendidih dan santan menyusut.",
+            "image_path": "saved_images\\nasi_padang\\step_6.jpg"
+        },
+        {
+            "instruction": "Tuang santan kental, kecilkan api. Masak terus sambil sesekali diaduk hingga santan mengering, bumbu meresap sempurna, dan daging empuk (membutuhkan waktu lama, sekitar 2-3 jam).",
+            "image_path": "saved_images\\nasi_padang\\step_7.jpg"
+        },
+        {
+            "instruction": "Membuat Ayam Pop: Rebus ayam dengan air kelapa, bumbu halus ayam pop, daun salam, daun jeruk, serai, garam, dan gula hingga ayam empuk dan bumbu meresap.",
+            "image_path": "saved_images\\nasi_padang\\step_8.jpg"
+        },
+        {
+            "instruction": "Angkat ayam, tiriskan. Goreng sebentar dalam minyak panas hingga berkulit tipis dan sedikit kecoklatan, jangan sampai terlalu kering. Angkat.",
+            "image_path": "saved_images\\nasi_padang\\step_9.jpg"
+        },
+        {
+            "instruction": "Membuat Gulai Nangka: Rebus nangka muda hingga empuk, tiriskan. Tumis bumbu halus gulai nangka hingga harum.",
+            "image_path": "saved_images\\nasi_padang\\step_10.jpg"
+        },
+        {
+            "instruction": "Masukkan nangka rebus, santan encer, daun salam, daun jeruk, serai, asam kandis, garam, dan gula. Masak hingga mendidih.",
+            "image_path": "saved_images\\nasi_padang\\step_11.jpg"
+        },
+        {
+            "instruction": "Tambahkan santan kental, kecilkan api. Masak terus sambil sesekali diaduk hingga bumbu meresap dan kuah mengental.",
+            "image_path": "saved_images\\nasi_padang\\step_12.jpg"
+        },
+        {
+            "instruction": "Membuat Sambal Hijau: Rebus atau goreng sebentar cabai hijau besar, cabai rawit hijau, bawang merah, bawang putih, dan tomat hijau hingga layu.",
+            "image_path": "saved_images\\nasi_padang\\step_13.jpg"
+        },
+        {
+            "instruction": "Ulek kasar atau blender sebentar bahan sambal yang sudah direbus/digoreng. Panaskan sedikit minyak, tumis sambal hingga matang.",
+            "image_path": "saved_images\\nasi_padang\\step_14.jpg"
+        },
+        {
+            "instruction": "Bumbui dengan garam, gula pasir, dan perasan jeruk nipis. Masak hingga sambal tidak langu dan matang sempurna.",
+            "image_path": "saved_images\\nasi_padang\\step_15.jpg"
+        },
+        {
+            "instruction": "Rebus daun singkong hingga empuk sebagai pelengkap hidangan.",
+            "image_path": "saved_images\\nasi_padang\\step_16.jpg"
+        },
+        {
+            "instruction": "Penyajian Nasi Padang: Tata nasi putih di piring. Sajikan dengan rendang sapi, ayam pop, gulai nangka, sambal hijau, dan daun singkong rebus. Siram sedikit kuah gulai atau rendang di atas nasi sesuai selera.",
+            "image_path": "saved_images\\nasi_padang\\step_17.jpg"
+        }
+    ]
+}

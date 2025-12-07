@@ -39,7 +39,7 @@ def _download_single_image(args):
     seed = random.randint(1000, 99999) + idx
     
     # URL Pollinations (Model Turbo)
-    url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=512&height=384&model=turbo&nologo=true&seed={seed}"
+    url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=480&height=360&model=turbo&nologo=true&seed={seed}"
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) ChefBot/1.0"
