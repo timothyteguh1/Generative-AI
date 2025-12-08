@@ -1,5 +1,8 @@
 import streamlit as st
 import os
+import re
+
+# --- FILE: frontend/components.py ---
 
 def render_header():
     st.markdown("""
@@ -10,25 +13,19 @@ def render_header():
     """, unsafe_allow_html=True)
 
 def render_chat_message(role, content):
-    """
-    Render chat custom dengan gaya Card/Box modern
-    """
     if role == "user":
-        # Layout User (Kanan)
         avatar = "👤"
         row_class = "row-user"
         bubble_class = "bubble-user"
         avatar_class = "avatar-user"
-        align_style = "text-align: right;" # Text rata kanan
+        align_style = "text-align: right;" 
     else:
-        # Layout Bot (Kiri)
         avatar = "👨‍🍳"
         row_class = "row-bot"
         bubble_class = "bubble-bot"
         avatar_class = "avatar-bot"
-        align_style = "text-align: left;" # Text rata kiri
+        align_style = "text-align: left;"
 
-    # Render HTML Custom
     st.markdown(f"""
     <div class="chat-row {row_class}">
         <div class="chat-avatar {avatar_class}">{avatar}</div>
@@ -49,7 +46,6 @@ def render_ingredient_card(ingredients):
 
 def render_nutrition_card(nutri):
     if not nutri: return
-    # Kita hapus bagian health_tip, hanya tampilkan Kalori & Protein
     st.markdown(f"""
     <div class="info-card" style="background: #F1F8E9; border: 1px dashed #66BB6A;">
         <div class="card-header" style="color:#2E7D32 !important; margin-bottom: 10px;">🍎 Info Gizi (Per Porsi)</div>
@@ -70,10 +66,6 @@ def render_nutrition_card(nutri):
     """, unsafe_allow_html=True)
 
 def render_step_card(idx, total, instruction, image_path):
-    """
-    Render kartu langkah menggunakan GAMBAR LOKAL.
-    """
-    
     st.markdown(f"""
     <div style="
         background: white;
@@ -95,16 +87,16 @@ def render_step_card(idx, total, instruction, image_path):
         </div>
     """, unsafe_allow_html=True)
     
-    # --- LOGIKA GAMBAR LOKAL ---
     if image_path and os.path.exists(image_path):
-        # Tampilkan gambar dari file lokal
         st.image(image_path, use_container_width=True)
     else:
-        # Placeholder jika gambar gagal download
-        st.warning(f"⚠️ Gambar tidak ditemukan: {image_path}")
-        st.markdown(f"<div style='height:200px; background:#eee; display:flex; align-items:center; justify-content:center; color:#888;'>No Image Available</div>", unsafe_allow_html=True)
+        st.markdown(f"""
+        <div style='height:200px; background:#F9FAFB; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#9CA3AF; border-bottom: 1px solid #eee;'>
+            <span style='font-size:2rem;'>🍳</span>
+            <span style='font-size:0.8rem; margin-top:5px;'>Menyiapkan ilustrasi...</span>
+        </div>
+        """, unsafe_allow_html=True)
     
-    # Render Teks
     st.markdown(f"""
         <div style="padding: 20px;">
             <p style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; margin: 0;">
@@ -113,28 +105,28 @@ def render_step_card(idx, total, instruction, image_path):
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
+
 def render_shopping_card(shopping_list):
+    """
+    Versi UPDATE: Layout Rapi (Flexbox Center) & Pembersih Teks
+    """
     if not shopping_list: return
 
-    # CSS Khusus Tombol Belanja & Layout Rapi
+    # CSS Khusus agar tombol sejajar (Align Items: Center)
     st.markdown("""
     <style>
         .shop-row {
             display: flex;
+            align-items: center; /* KUNCI: Membuat vertikal tengah */
             justify-content: space-between;
-            align-items: center;
             padding: 12px 0;
             border-bottom: 1px solid #F0F0F0;
-            gap: 15px; /* Jarak antar teks dan tombol */
+            gap: 15px;
         }
         
-        /* Container Teks (Kiri) */
         .shop-info-col {
-            flex-grow: 1; /* Mengisi ruang kosong */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex: 1; /* Mengambil sisa ruang */
+            padding-right: 10px;
         }
 
         .shop-name {
@@ -143,6 +135,7 @@ def render_shopping_card(shopping_list):
             font-size: 0.95rem;
             display: block;
             margin-bottom: 4px;
+            line-height: 1.3;
         }
         
         .shop-cat {
@@ -152,62 +145,56 @@ def render_shopping_card(shopping_list):
             padding: 2px 8px;
             border-radius: 4px;
             display: inline-block;
-            width: fit-content;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        /* Container Tombol (Kanan) - Fixed Width agar Rata */
         .shop-actions-col {
-            flex-shrink: 0; /* Jangan mengecil */
             display: flex;
-            gap: 5px;
+            gap: 6px;
+            flex-shrink: 0; /* Tombol tidak boleh mengecil */
+            align-items: center;
         }
 
         .shop-btn {
-            text-decoration: none;
-            padding: 6px 14px;
+            text-decoration: none !important;
+            padding: 6px 12px;
             border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: 0.2s;
+            font-size: 0.75rem;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            white-space: nowrap; /* Mencegah teks tombol turun baris */
+            min-width: 80px; /* Lebar minimum agar seragam */
+            height: 30px;
         }
         
-        .btn-toped {
-            background-color: #E5F9F1;
-            color: #03AC0E !important; 
-            border: 1px solid #03AC0E;
-        }
+        .btn-toped { background-color: #E5F9F1; color: #03AC0E !important; border: 1px solid #03AC0E; }
         .btn-toped:hover { background-color: #03AC0E; color: white !important; }
         
-        .btn-shopee {
-            background-color: #FFF0F0;
-            color: #EE4D2D !important;
-            border: 1px solid #EE4D2D;
-        }
+        .btn-shopee { background-color: #FFF0F0; color: #EE4D2D !important; border: 1px solid #EE4D2D; }
         .btn-shopee:hover { background-color: #EE4D2D; color: white !important; }
     </style>
     """, unsafe_allow_html=True)
 
-    # Header Card
     st.markdown("""
     <div class="info-card" style="border: 1px solid #F0F0F0;">
         <div class="card-header">🛒 Belanja Bahan</div>
         <p style="font-size:0.9rem; color:#7f8c8d !important; margin-bottom:15px;">
-            Daftar belanja otomatis (Klik untuk beli):
+            Klik tombol untuk beli langsung:
         </p>
     """, unsafe_allow_html=True)
 
-    # Render List Bahan
     for item in shopping_list:
+        raw_name = item['name']
+        
+        # --- LOGIKA PEMBERSIH ---
+        # Hapus (potongan), (untuk sop), dll
+        clean_name = re.sub(r'\s*\(.*?\)', '', raw_name).strip()
+        
         st.markdown(f"""
         <div class="shop-row">
             <div class="shop-info-col">
-                <span class="shop-name">{item['name']}</span>
+                <span class="shop-name">{clean_name}</span>
                 <span class="shop-cat">{item['category']}</span>
             </div>
             <div class="shop-actions-col">

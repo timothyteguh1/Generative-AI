@@ -1,0 +1,58 @@
+{
+    "dish": "saya mau bikin nasi goreng yang sehat",
+    "ingredients": [
+        "2 piring nasi merah dingin (atau nasi putih sisa semalam)",
+        "100 gram dada ayam tanpa kulit, potong dadu kecil",
+        "1 butir telur",
+        "1 sdm minyak zaitun (atau minyak kelapa)",
+        "2 siung bawang putih, cincang halus",
+        "3 siung bawang merah, iris tipis",
+        "1 buah cabai merah besar, iris serong (opsional, buang biji jika tidak suka pedas)",
+        "50 gram wortel, potong dadu kecil",
+        "50 gram buncis, iris tipis",
+        "100 gram pakcoy/sawi hijau, potong-potong",
+        "1 sdm kecap asin rendah sodium",
+        "1 sdt kecap manis (gunakan sedikit saja untuk warna dan rasa)",
+        "Sejumput garam",
+        "Sejumput lada hitam bubuk",
+        "Timun dan tomat secukupnya untuk pelengkap"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan. Potong dada ayam, wortel, buncis, pakcoy, bawang, dan cabai.",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_1.jpg"
+        },
+        {
+            "instruction": "Panaskan minyak zaitun di wajan dengan api sedang. Tumis bawang putih, bawang merah, dan cabai hingga harum.",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_2.jpg"
+        },
+        {
+            "instruction": "Masukkan potongan dada ayam, aduk dan masak hingga ayam berubah warna dan matang. Sisihkan ayam ke pinggir wajan.",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_3.jpg"
+        },
+        {
+            "instruction": "Pecahkan telur ke bagian kosong wajan, aduk-orak arik hingga matang, lalu campurkan dengan ayam dan bumbu tumis.",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_4.jpg"
+        },
+        {
+            "instruction": "Masukkan wortel dan buncis, aduk rata dan masak selama 2-3 menit hingga sedikit empuk.",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_5.jpg"
+        },
+        {
+            "instruction": "Masukkan nasi merah dingin, aduk rata bersama semua bahan di wajan. Pastikan nasi terurai dan tercampur sempurna.",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_6.jpg"
+        },
+        {
+            "instruction": "Tambahkan kecap asin, kecap manis, garam, dan lada hitam. Aduk terus hingga semua bumbu merata dan nasi goreng harum serta panas.",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_7.jpg"
+        },
+        {
+            "instruction": "Terakhir, masukkan potongan pakcoy atau sawi hijau. Aduk sebentar hingga sayuran layu namun masih renyah (sekitar 1-2 menit).",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_8.jpg"
+        },
+        {
+            "instruction": "Angkat dan sajikan nasi goreng sehat selagi hangat dengan irisan timun dan tomat.",
+            "image_path": "saved_images\\saya_mau_bikin_nasi_goreng_yang_sehat\\step_9.jpg"
+        }
+    ]
+}

@@ -9,7 +9,6 @@ def load_css():
     html, body, [class*="css"] {
         font-family: 'Outfit', sans-serif;
     }
-    /* Paksa semua teks jadi Abu Gelap agar terbaca */
     p, h1, h2, h3, h4, h5, li, span, label, div {
         color: #2C3E50 !important;
     }
@@ -35,27 +34,57 @@ def load_css():
         margin: 0;
     }
 
-    /* --- 3. PERBAIKAN INPUT BAR --- */
+    /* --- 3. CUSTOM CHAT INPUT (Gaya Gambar Ke-2: Capsule Gray) --- */
+    
+    /* Area Sticky di Bawah */
     [data-testid="stBottom"] {
-        background-color: #FFFBF2 !important;
-        border-top: 1px solid #E0E0E0;
+        background-color: #FFFBF2 !important; 
+        border-top: 1px solid #F0F0F0;
         padding-bottom: 20px;
         padding-top: 20px;
     }
+
+    /* KOTAK INPUT UTAMA (PILL SHAPE) */
     .stChatInput textarea {
-        background-color: #FFFFFF !important;
-        color: #333333 !important;
-        border: 2px solid #D35400 !important;
-        border-radius: 12px !important; /* Radius diperkecil sedikit agar fit dengan tema kotak */
-        padding: 12px 20px !important;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        background-color: #F3F4F6 !important; /* Abu-abu muda persis referensi */
+        color: #374151 !important; /* Teks abu gelap */
+        border: 1px solid transparent !important; /* Hilangkan border default */
+        border-radius: 9999px !important; /* Membuat ujungnya bulat sempurna (Capsule) */
+        padding: 14px 24px !important; /* Padding luas biar lega */
+        box-shadow: none !important; /* Flat design */
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
     }
-    .stChatInput button {
-        color: #D35400 !important;
+    
+    /* Efek saat diklik/fokus: Jadi Putih dengan Shadow halus */
+    .stChatInput textarea:focus {
+        background-color: #FFFFFF !important;
+        border: 1px solid #E5E7EB !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* --- 4. NEW: CUSTOM CHAT BUBBLES (Card Style / Shadcn-like) --- */
-    /* Container Baris Chat */
+    /* TOMBOL KIRIM (Paper Plane) */
+    .stChatInput button {
+        color: #9CA3AF !important; /* Abu-abu soft */
+        background: transparent !important;
+        border: none !important;
+        transition: 0.3s;
+        margin-right: 10px; /* Geser dikit dari kanan */
+    }
+    
+    /* Tombol Kirim saat Hover */
+    .stChatInput button:hover {
+        color: #D35400 !important; /* Jadi Oranye */
+        background-color: rgba(211, 84, 0, 0.1) !important;
+        border-radius: 50%;
+    }
+
+    /* Sembunyikan instruksi 'Press Enter to send' */
+    .stChatInput div[data-testid="stInputInstructions"] {
+        display: none;
+    }
+
+    /* --- 4. NEW: CUSTOM CHAT BUBBLES --- */
     .chat-row {
         display: flex;
         gap: 12px;
@@ -63,14 +92,14 @@ def load_css():
         margin-bottom: 15px;
         align-items: flex-start;
     }
-    .row-user { flex-direction: row-reverse; } /* User di kanan */
-    .row-bot { flex-direction: row; } /* Bot di kiri */
+    .row-user { flex-direction: row-reverse; } 
+    .row-bot { flex-direction: row; }
 
     /* Avatar Kotak */
     .chat-avatar {
         width: 36px;
         height: 36px;
-        border-radius: 8px; /* Kotak dengan sudut tumpul */
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -81,24 +110,24 @@ def load_css():
     .avatar-bot { background: #FFFFFF; border: 1px solid #E0E0E0; }
     .avatar-user { background: #D35400; color: white; }
 
-    /* Bubble Chat (Kotak Rapi) */
+    /* Bubble Chat */
     .chat-bubble {
-        padding: 12px 16px;
-        border-radius: 10px; /* Radius kecil agar terlihat modern/kotak */
+        padding: 12px 18px;
+        border-radius: 18px; /* Lebih bulat */
         max-width: 80%;
         line-height: 1.5;
         font-size: 0.95rem;
         position: relative;
     }
 
-    /* Gaya Spesifik BOT (Putih Bersih) */
+    /* Bot: Putih */
     .bubble-bot {
         background: #FFFFFF;
-        border: 1px solid #E0E0E0;
+        border: 1px solid #F3F4F6;
         color: #2C3E50;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        border-top-left-radius: 4px;
     }
-    /* Label 'ChefBot' di atas bubble bot */
     .bubble-bot::before {
         content: "ChefBot";
         display: block;
@@ -110,26 +139,20 @@ def load_css():
         letter-spacing: 0.5px;
     }
 
-    /* Gaya Spesifik USER (Cream/Oranye) */
+    /* User: Oranye Pudar */
     .bubble-user {
-        background: #FFF3E0;
-        border: 1px solid #FFCC80;
-        color: #E65100;
-        text-align: left; /* Tetap rata kiri agar mudah dibaca meski di kanan */
+        background: #FFF3E0; /* Cream Oranye */
+        color: #B45309;
+        border-top-right-radius: 4px;
     }
 
-    /* Sembunyikan Chat Default Streamlit agar tidak double */
-    div[data-testid="stChatMessage"] {
-        display: none;
-    }
-
-    /* --- 5. KARTU RESEP & LANGKAH --- */
+    /* --- 5. KARTU RESEP & INFO --- */
     .info-card {
         background: #FFFFFF;
         padding: 20px;
         border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        border: 1px solid #F0F0F0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        border: 1px solid #F3F4F6;
         margin-bottom: 15px;
     }
     .card-header {
@@ -139,11 +162,11 @@ def load_css():
         font-size: 1.1rem;
     }
 
-    /* --- 6. TOMBOL & UPLOAD --- */
+    /* --- 6. TOMBOL UMUM & UPLOAD --- */
     .stButton button {
         background: #D35400 !important;
         color: white !important;
-        border-radius: 8px !important; /* Diubah jadi agak kotak dikit */
+        border-radius: 8px !important;
         border: none !important;
         padding: 0.5rem 2rem !important;
         font-weight: 600;
@@ -153,21 +176,14 @@ def load_css():
         transform: translateY(-2px);
         box-shadow: 0 4px 10px rgba(211, 84, 0, 0.2);
     }
-
-    /* Fix Upload Box */
-    .streamlit-expanderHeader {
-        background-color: #FFFFFF !important;
-        color: #D35400 !important;
-        border: 1px solid #D35400 !important;
-        border-radius: 8px !important;
-    }
+    
     [data-testid="stFileUploader"] {
         background-color: #FFF8E1 !important;
         border: 2px dashed #D35400;
         border-radius: 12px;
     }
     [data-testid="stFileUploader"] section { background: transparent !important; }
-    
+
     /* Hide default elements */
     #MainMenu, footer, header {visibility: hidden;}
     </style>
