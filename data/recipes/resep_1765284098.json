@@ -1,0 +1,55 @@
+{
+    "dish": "nasi goreng",
+    "portion": "1 Orang",
+    "description": "Nasi goreng klasik yang gurih dan lezat, cocok dinikmati kapan saja sebagai hidangan utama.",
+    "ingredients": [
+        "150g Nasi putih dingin (sekitar 1 piring)",
+        "1 butir Telur ayam",
+        "50g Dada ayam fillet, potong dadu kecil",
+        "2 siung Bawang merah, cincang halus",
+        "1 siung Bawang putih, cincang halus",
+        "1 buah Cabai merah keriting, iris tipis (sesuai selera)",
+        "1 batang Daun bawang, iris tipis",
+        "2 lembar Daun sawi hijau, iris kasar",
+        "1 sdm Minyak goreng",
+        "1 sdm Kecap manis",
+        "1/2 sdt Kecap asin",
+        "1/4 sdt Garam",
+        "1/8 sdt Lada putih bubuk",
+        "1/4 sdt Kaldu ayam bubuk (opsional)"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan. Potong dadu dada ayam, cincang bawang merah dan bawang putih, iris cabai, daun bawang, dan sawi hijau.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20nasi%20goreng%20step%201%20hyperrealistic%20food%20photo?width=512&height=384&model=flux&nologo=true&seed=607"
+        },
+        {
+            "instruction": "Panaskan 1 sdm minyak goreng dalam wajan dengan api sedang. Masukkan potongan dada ayam, masak hingga berubah warna dan matang, lalu sisihkan ke pinggir wajan.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20nasi%20goreng%20step%202%20hyperrealistic%20food%20photo?width=512&height=384&model=flux&nologo=true&seed=608"
+        },
+        {
+            "instruction": "Pecahkan telur ke sisi wajan yang kosong, aduk-aduk hingga menjadi orak-arik. Campurkan telur orak-arik dengan ayam.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20nasi%20goreng%20step%203%20hyperrealistic%20food%20photo?width=512&height=384&model=flux&nologo=true&seed=609"
+        },
+        {
+            "instruction": "Masukkan bawang merah, bawang putih, dan cabai yang sudah dicincang/iris ke dalam wajan. Tumis hingga harum.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20nasi%20goreng%20step%204%20hyperrealistic%20food%20photo?width=512&height=384&model=flux&nologo=true&seed=610"
+        },
+        {
+            "instruction": "Masukkan nasi putih dingin ke dalam wajan. Aduk rata bersama semua bahan lainnya hingga nasi terurai dan tercampur.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20nasi%20goreng%20step%205%20hyperrealistic%20food%20photo?width=512&height=384&model=flux&nologo=true&seed=611"
+        },
+        {
+            "instruction": "Tambahkan kecap manis, kecap asin, garam, lada putih bubuk, dan kaldu ayam bubuk (jika pakai). Aduk terus hingga semua bumbu merata dan nasi tidak menggumpal.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20nasi%20goreng%20step%206%20hyperrealistic%20food%20photo?width=512&height=384&model=flux&nologo=true&seed=612"
+        },
+        {
+            "instruction": "Masukkan irisan daun sawi hijau dan sebagian irisan daun bawang. Aduk rata dan masak sebentar hingga sawi sedikit layu.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20nasi%20goreng%20step%207%20hyperrealistic%20food%20photo?width=512&height=384&model=flux&nologo=true&seed=613"
+        },
+        {
+            "instruction": "Koreksi rasa. Jika sudah pas, angkat nasi goreng dan sajikan di piring. Taburi sisa irisan daun bawang di atasnya sebagai hiasan.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20nasi%20goreng%20step%208%20hyperrealistic%20food%20photo?width=512&height=384&model=flux&nologo=true&seed=614"
+        }
+    ]
+}
