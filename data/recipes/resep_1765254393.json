@@ -1,0 +1,50 @@
+{
+    "dish": "nasi goreng",
+    "ingredients": [
+        "2 piring nasi putih (lebih baik nasi dingin sisa kemarin)",
+        "1 butir telur",
+        "3 siung bawang merah",
+        "2 siung bawang putih",
+        "2-3 buah cabai rawit (sesuai selera pedas)",
+        "1/2 sendok teh terasi (opsional)",
+        "2-3 sendok makan kecap manis",
+        "1/2 sendok teh garam",
+        "1/4 sendok teh merica bubuk",
+        "Minyak goreng secukupnya",
+        "Pelengkap: irisan timun, tomat, kerupuk, bawang goreng (opsional)"
+    ],
+    "steps": [
+        {
+            "instruction": "Haluskan bawang merah, bawang putih, cabai rawit, dan terasi (jika menggunakan) hingga menjadi bumbu halus.",
+            "image_path": "https://image.pollinations.ai/prompt/Realistic%20food%20photography%2C%204k%2C%20cinematic%20lighting%3A%20A%20close-up%20shot%20of%20red%20shallots%2C%20garlic%2C%20bird%27s%20eye%20chilies%2C%20and%20shrimp%20paste%20being%20ground%20into%20a%20fine%2C%20aromatic%20spice%20paste%20using%20a%20traditional%20mortar%20and%20pestle.?width=800&height=600&model=flux&nologo=true&seed=12560"
+        },
+        {
+            "instruction": "Panaskan sedikit minyak goreng dalam wajan atau penggorengan dengan api sedang.",
+            "image_path": "https://image.pollinations.ai/prompt/Realistic%20food%20photography%2C%204k%2C%20cinematic%20lighting%3A%20A%20shot%20of%20a%20hot%20wok%20on%20a%20medium%20flame%2C%20with%20a%20small%20amount%20of%20shimmering%20cooking%20oil%20heating%20up%2C%20ready%20for%20ingredients.?width=800&height=600&model=flux&nologo=true&seed=12517"
+        },
+        {
+            "instruction": "Masukkan bumbu halus, tumis hingga harum dan matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Realistic%20food%20photography%2C%204k%2C%20cinematic%20lighting%3A%20The%20finely%20ground%20spice%20paste%20being%20added%20to%20the%20hot%20oil%20in%20a%20wok%2C%20sizzling%20and%20being%20stir-fried%20until%20fragrant%20and%20cooked%20through.?width=800&height=600&model=flux&nologo=true&seed=12530"
+        },
+        {
+            "instruction": "Sisihkan bumbu ke pinggir wajan, masukkan telur. Orak-arik hingga telur matang, lalu campurkan dengan bumbu tumisan.",
+            "image_path": "https://image.pollinations.ai/prompt/Realistic%20food%20photography%2C%204k%2C%20cinematic%20lighting%3A%20The%20aromatic%20spice%20paste%20pushed%20to%20one%20side%20of%20the%20wok%2C%20an%20egg%20cracked%20into%20the%20empty%20space%2C%20being%20scrambled%20until%20cooked%2C%20then%20mixed%20with%20the%20stir-fried%20spices.?width=800&height=600&model=flux&nologo=true&seed=12561"
+        },
+        {
+            "instruction": "Masukkan nasi putih. Aduk rata agar nasi tercampur sempurna dengan bumbu dan telur.",
+            "image_path": "https://image.pollinations.ai/prompt/Realistic%20food%20photography%2C%204k%2C%20cinematic%20lighting%3A%20Cooked%20white%20rice%20being%20added%20to%20the%20wok%2C%20then%20expertly%20stirred%20and%20tossed%20with%20the%20spice%20paste%20and%20scrambled%20egg%20until%20thoroughly%20combined.?width=800&height=600&model=flux&nologo=true&seed=12541"
+        },
+        {
+            "instruction": "Tambahkan kecap manis, garam, dan merica bubuk. Aduk terus hingga semua bumbu tercampur rata dan nasi mulai sedikit kering serta panas merata.",
+            "image_path": "https://image.pollinations.ai/prompt/Realistic%20food%20photography%2C%204k%2C%20cinematic%20lighting%3A%20A%20drizzle%20of%20sweet%20soy%20sauce%20%28kecap%20manis%29%2C%20a%20pinch%20of%20salt%2C%20and%20a%20sprinkle%20of%20white%20pepper%20being%20added%20to%20the%20nasi%20goreng%20in%20the%20wok%2C%20followed%20by%20continuous%20stirring%20until%20well-mixed%20and%20the%20rice%20is%20slightly%20dry%20and%20evenly%20heated.?width=800&height=600&model=flux&nologo=true&seed=12633"
+        },
+        {
+            "instruction": "Cicipi dan sesuaikan rasa jika perlu. Tambahkan garam atau kecap manis sesuai selera.",
+            "image_path": "https://image.pollinations.ai/prompt/Realistic%20food%20photography%2C%204k%2C%20cinematic%20lighting%3A%20A%20hand%20holding%20a%20spoon%2C%20tasting%20a%20small%20portion%20of%20the%20nasi%20goreng%20directly%20from%20the%20wok%2C%20with%20a%20thoughtful%20expression%2C%20ready%20to%20adjust%20seasoning.?width=800&height=600&model=flux&nologo=true&seed=12549"
+        },
+        {
+            "instruction": "Angkat nasi goreng dan sajikan selagi hangat dengan pelengkap seperti irisan timun, tomat, kerupuk, dan taburan bawang goreng.",
+            "image_path": "https://image.pollinations.ai/prompt/Realistic%20food%20photography%2C%204k%2C%20cinematic%20lighting%3A%20A%20beautifully%20plated%2C%20steaming%20hot%20bowl%20of%20Nasi%20Goreng%2C%20garnished%20with%20fresh%20cucumber%20slices%2C%20tomato%20wedges%2C%20crispy%20prawn%20crackers%20%28kerupuk%29%2C%20and%20a%20generous%20sprinkle%20of%20fried%20shallots%2C%20ready%20to%20be%20served.?width=800&height=600&model=flux&nologo=true&seed=12608"
+        }
+    ]
+}

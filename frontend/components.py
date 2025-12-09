@@ -87,9 +87,18 @@ def render_step_card(idx, total, instruction, image_path):
         </div>
     """, unsafe_allow_html=True)
     
-    if image_path and os.path.exists(image_path):
+    # --- LOGIKA TAMPILAN GAMBAR (UPDATE) ---
+    # Cek apakah image_path berisi URL (dimulai dengan http)
+    if image_path and image_path.startswith("http"):
+        # Tampilkan langsung dari internet
         st.image(image_path, use_container_width=True)
+        
+    # Cek apakah image_path adalah file lokal
+    elif image_path and os.path.exists(image_path):
+        st.image(image_path, use_container_width=True)
+        
     else:
+        # Placeholder jika kosong
         st.markdown(f"""
         <div style='height:200px; background:#F9FAFB; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#9CA3AF; border-bottom: 1px solid #eee;'>
             <span style='font-size:2rem;'>🍳</span>
