@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-import re
 
 # --- FILE: frontend/components.py ---
 
@@ -36,37 +35,60 @@ def render_chat_message(role, content):
     """, unsafe_allow_html=True)
 
 def render_ingredient_card(ingredients):
-    items = "".join([f"<li style='margin-bottom:5px;'>{i}</li>" for i in ingredients])
+    # CSS Inline color black agar teks bahan terlihat jelas
+    items = "".join([f"<li style='margin-bottom:5px; color:#2C3E50;'>{i}</li>" for i in ingredients])
+    
     st.markdown(f"""
     <div class="info-card" style="border-top: 4px solid #F39C12;">
         <div class="card-header">🛒 Bahan-Bahan</div>
-        <ul style="padding-left:20px; color: #333333; margin: 0;">{items}</ul>
+        <ul style="padding-left:20px; color:#2C3E50; margin:0;">
+            {items}
+        </ul>
     </div>
     """, unsafe_allow_html=True)
 
 def render_nutrition_card(nutri):
     if not nutri: return
+    
+    # Data dari Backend sudah bersih (misal: "500 kkal", "20g")
+    cal = nutri.get('calories', '-')
+    prot = nutri.get('protein', '-')
+    carbs = nutri.get('carbs', '-') 
+    fat = nutri.get('fat', '-')
+    
     st.markdown(f"""
     <div class="info-card" style="background: #F1F8E9; border: 1px dashed #66BB6A;">
         <div class="card-header" style="color:#2E7D32 !important; margin-bottom: 10px;">🍎 Info Gizi (Per Porsi)</div>
         <div style="display:flex; justify-content:space-around; align-items:center;">
             <div style="text-align:center;">
                 <span style="font-size: 1.5rem;">🔥</span><br>
-                <b style="font-size: 1.2rem; color: #2C3E50;">{nutri.get('calories', '-')}</b><br>
+                <b style="font-size: 1.2rem; color: #2C3E50;">{cal}</b><br>
                 <small style="color:#666; text-transform:uppercase;">Kalori</small>
             </div>
             <div style="border-left: 1px solid #CCC; height: 40px;"></div>
             <div style="text-align:center;">
                 <span style="font-size: 1.5rem;">💪</span><br>
-                <b style="font-size: 1.2rem; color: #2C3E50;">{nutri.get('protein', '-')}</b><br>
+                <b style="font-size: 1.2rem; color: #2C3E50;">{prot}</b><br>
                 <small style="color:#666; text-transform:uppercase;">Protein</small>
             </div>
-        </div>
+            <div style="border-left: 1px solid #CCC; height: 40px;"></div>
+            <div style="text-align:center;">
+                <span style="font-size: 1.5rem;">🍞</span><br>
+                <b style="font-size: 1.2rem; color: #2C3E50;">{carbs}</b><br>
+                <small style="color:#666; text-transform:uppercase;">Karbo</small>
+            </div>
+            <div style="border-left: 1px solid #CCC; height: 40px;"></div>
+            <div style="text-align:center;">
+                <span style="font-size: 1.5rem;">💧</span><br>
+                <b style="font-size: 1.2rem; color: #2C3E50;">{fat}</b><br>
+                <small style="color:#666; text-transform:uppercase;">Lemak</small>
+            </div>
+            
+        
     </div>
     """, unsafe_allow_html=True)
 
 def render_step_card(idx, total, instruction, image_path):
-    # Container Kartu
     st.markdown(f"""
     <div style="
         background: white;
@@ -91,14 +113,13 @@ def render_step_card(idx, total, instruction, image_path):
         </div>
     """, unsafe_allow_html=True)
     
-    # --- AREA GAMBAR (RESPONSIF & DIBATASI TINGGINYA) ---
-    # Kita bungkus dalam div khusus agar bisa diatur max-height nya
+    # --- AREA GAMBAR RESPONSIF ---
     st.markdown("""
     <style>
         .step-image-container {
             width: 100%;
-            max-height: 350px; /* BATAS TINGGI AGAR TIDAK PENUH SATU LAYAR */
-            overflow: hidden; /* Potong sisa gambar jika kepanjangan */
+            max-height: 350px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,19 +128,17 @@ def render_step_card(idx, total, instruction, image_path):
         .step-image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Gambar mengisi ruang tanpa gepeng */
+            object-fit: cover;
         }
     </style>
     <div class="step-image-container">
     """, unsafe_allow_html=True)
 
-    # Render Gambar
     if image_path and image_path.startswith("http"):
-        st.image(image_path, use_container_width=True) # Streamlit otomatis bikin ini responsif width-nya
+        st.image(image_path, use_container_width=True)
     elif image_path and os.path.exists(image_path):
         st.image(image_path, use_container_width=True)
     else:
-        # Placeholder
         st.markdown(f"""
         <div style='padding:40px; text-align:center; color:#9CA3AF;'>
             <span style='font-size:2rem;'>🍳</span><br>
@@ -127,9 +146,8 @@ def render_step_card(idx, total, instruction, image_path):
         </div>
         """, unsafe_allow_html=True)
     
-    st.markdown("</div>", unsafe_allow_html=True) # Tutup container gambar
+    st.markdown("</div>", unsafe_allow_html=True)
     
-    # Render Teks Instruksi
     st.markdown(f"""
         <div style="padding: 20px 24px;">
             <p style="font-size: 1.05rem; line-height: 1.6; color: #374151; margin: 0;">
@@ -141,69 +159,40 @@ def render_step_card(idx, total, instruction, image_path):
 
 def render_shopping_card(shopping_list):
     """
-    Versi UPDATE: Layout Rapi (Flexbox Center) & Pembersih Teks
+    Versi FINAL: Tanpa Regex Cleaner (karena Backend sudah bersih).
     """
     if not shopping_list: return
 
-    # CSS Khusus agar tombol sejajar (Align Items: Center)
+    # CSS Layout Tombol
     st.markdown("""
     <style>
         .shop-row {
             display: flex;
-            align-items: center; /* KUNCI: Membuat vertikal tengah */
+            align-items: center;
             justify-content: space-between;
             padding: 12px 0;
             border-bottom: 1px solid #F0F0F0;
             gap: 15px;
         }
-        
-        .shop-info-col {
-            flex: 1; /* Mengambil sisa ruang */
-            padding-right: 10px;
-        }
-
+        .shop-info-col { flex: 1; padding-right: 10px; }
         .shop-name {
-            font-weight: 600;
-            color: #2C3E50;
-            font-size: 0.95rem;
-            display: block;
-            margin-bottom: 4px;
-            line-height: 1.3;
+            font-weight: 600; color: #2C3E50; font-size: 0.95rem;
+            display: block; margin-bottom: 4px; line-height: 1.3;
         }
-        
         .shop-cat {
-            font-size: 0.7rem;
-            color: #7f8c8d;
-            background: #F4F6F7;
-            padding: 2px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            text-transform: uppercase;
+            font-size: 0.7rem; color: #7f8c8d; background: #F4F6F7;
+            padding: 2px 8px; border-radius: 4px;
+            display: inline-block; text-transform: uppercase;
         }
-
-        .shop-actions-col {
-            display: flex;
-            gap: 6px;
-            flex-shrink: 0; /* Tombol tidak boleh mengecil */
-            align-items: center;
-        }
-
+        .shop-actions-col { display: flex; gap: 6px; flex-shrink: 0; align-items: center; }
         .shop-btn {
-            text-decoration: none !important;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 80px; /* Lebar minimum agar seragam */
-            height: 30px;
+            text-decoration: none !important; padding: 6px 12px;
+            border-radius: 6px; font-size: 0.75rem; font-weight: 700;
+            display: inline-flex; align-items: center; justify-content: center;
+            min-width: 80px; height: 30px;
         }
-        
         .btn-toped { background-color: #E5F9F1; color: #03AC0E !important; border: 1px solid #03AC0E; }
         .btn-toped:hover { background-color: #03AC0E; color: white !important; }
-        
         .btn-shopee { background-color: #FFF0F0; color: #EE4D2D !important; border: 1px solid #EE4D2D; }
         .btn-shopee:hover { background-color: #EE4D2D; color: white !important; }
     </style>
@@ -218,17 +207,19 @@ def render_shopping_card(shopping_list):
     """, unsafe_allow_html=True)
 
     for item in shopping_list:
-        raw_name = item['name']
+        # Backend sudah mengirim 'name' yang bersih (search_term) jika diinginkan,
+        # atau 'display_name' lengkap.
+        # Karena kita sudah optimasi backend agar 'name' itu Display Name yang bagus, 
+        # kita tampilkan apa adanya.
         
-        # --- LOGIKA PEMBERSIH ---
-        # Hapus (potongan), (untuk sop), dll
-        clean_name = re.sub(r'\s*\(.*?\)', '', raw_name).strip()
+        display_name = item['name']
+        category = item['category']
         
         st.markdown(f"""
         <div class="shop-row">
             <div class="shop-info-col">
-                <span class="shop-name">{clean_name}</span>
-                <span class="shop-cat">{item['category']}</span>
+                <span class="shop-name">{display_name}</span>
+                <span class="shop-cat">{category}</span>
             </div>
             <div class="shop-actions-col">
                 <a href="{item['link_toped']}" target="_blank" class="shop-btn btn-toped">Tokopedia</a>

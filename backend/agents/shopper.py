@@ -1,57 +1,76 @@
 import google.generativeai as genai
 import json
 import urllib.parse
-import re  # <--- TAMBAHKAN INI
 from config import configure_ai
 
 configure_ai()
-model = genai.GenerativeModel('models/gemini-2.5-flash')
 
-# --- WARNA TERMINAL ---
+# Prioritas: Gemini 2.5 Flash -> Fallback: 2.0 Flash / 1.5 Flash
+try:
+    model = genai.GenerativeModel('models/gemini-2.5-flash')
+except:
+    try:
+        model = genai.GenerativeModel('models/gemini-2.0-flash-exp')
+    except:
+        model = genai.GenerativeModel('models/gemini-1.5-flash')
+
 CYAN = "\033[96m"
 RESET = "\033[0m"
 
 def generate_shopping_list(ingredients):
-    # [LOG]
-    print(f"{CYAN}[SHOPPER AGENT] 🛒 Mencari toko online untuk bahan-bahan...{RESET}")
+    print(f"{CYAN}[SHOPPER AGENT] 🛒 Merapikan daftar belanja dengan AI...{RESET}")
 
+    # Prompt Cerdas: Minta search_term khusus untuk E-commerce
     prompt = f"""
-    Dari daftar bahan ini: {ingredients}, 
-    Kelompokkan menjadi JSON kategori sederhana:
+    Saya punya daftar bahan masakan: {ingredients}.
+    
+    Tugas:
+    1. Identifikasi bahan UTAMA yang perlu dibeli.
+    2. Bersihkan kata sifat (potongan, iris, secukupnya, untuk taburan).
+    3. Tentukan kategori (Sayuran, Daging, Bumbu, dll).
+    
+    Output JSON WAJIB (Array of Objects):
     {{
         "items": [
-            {{"name": "Nama Bahan Lengkap", "category": "Daging"}},
-            {{"name": "Nama Bahan Lengkap", "category": "Bumbu"}}
+            {{
+                "display_name": "Nama Lengkap (misal: Ayam Kampung Potong 1kg)", 
+                "search_term": "Ayam Kampung",  <-- KATA KUNCI BERSIH UNTUK PENCARIAN
+                "category": "Daging"
+            }}
         ]
     }}
-    Hanya sertakan bahan utama yang perlu dibeli.
     """
     
     try:
-        res = model.generate_content(prompt)
-        text = res.text.replace("```json","").replace("```","").strip()
-        s = text.find('{'); e = text.rfind('}')
-        data = json.loads(text[s:e+1])
+        # Gunakan JSON Mode agar output stabil
+        res = model.generate_content(
+            prompt,
+            generation_config=genai.types.GenerationConfig(response_mime_type="application/json")
+        )
+        data = json.loads(res.text)
         
         final_list = []
         for item in data.get('items', []):
-            original_name = item['name']
+            # Nama untuk ditampilkan di UI (Lengkap)
+            display_name = item.get('display_name', item.get('name', 'Bahan'))
             
-            # --- LOGIKA PEMBERSIHAN NAMA (REGEX) ---
-            # Menghapus teks di dalam kurung (...) beserta spasi sebelumnya
-            clean_name = re.sub(r'\s*\(.*?\)', '', original_name).strip()
+            # Kata kunci untuk Link (Bersih)
+            keyword = item.get('search_term', display_name)
             
-            # Update nama di dictionary agar bersih saat ditampilkan
-            item['name'] = clean_name
+            # Encode URL
+            query = urllib.parse.quote(keyword)
             
-            # Buat link berdasarkan nama yang sudah bersih
-            query = urllib.parse.quote(clean_name)
-            item['link_toped'] = f"https://www.tokopedia.com/search?st=product&q={query}"
-            item['link_shopee'] = f"https://shopee.co.id/search?keyword={query}"
-            final_list.append(item)
+            final_item = {
+                'name': display_name,
+                'category': item.get('category', 'Bahan'),
+                'link_toped': f"https://www.tokopedia.com/search?st=product&q={query}",
+                'link_shopee': f"https://shopee.co.id/search?keyword={query}"
+            }
+            final_list.append(final_item)
             
         print(f"{CYAN}[SHOPPER AGENT] ✅ Link belanja siap!{RESET}")
         return final_list
+        
     except Exception as e:
         print(f"\033[91m[SHOPPER AGENT] ❌ Error: {e}{RESET}")
         return []
