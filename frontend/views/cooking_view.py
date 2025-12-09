@@ -58,8 +58,11 @@ def render_cooking_view():
                         st.error(f"❌ {res['feedback']}")
 
     # --- CHAT CONSULTANT ---
-    st.markdown("---")
-    st.caption("💬 Tanya Chef tentang langkah ini:")
+    st.markdown("""
+        <p style='color: #2C3E50; font-size: 0.9rem; font-weight: 600; margin-bottom: 5px;'>
+            💬 Tanya Chef tentang langkah ini:
+        </p>
+    """, unsafe_allow_html=True)
     
     with st.container(height=200):
         for msg in st.session_state.messages:

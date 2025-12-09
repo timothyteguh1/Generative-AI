@@ -40,7 +40,7 @@ def render_ingredient_card(ingredients):
     st.markdown(f"""
     <div class="info-card" style="border-top: 4px solid #F39C12;">
         <div class="card-header">🛒 Bahan-Bahan</div>
-        <ul style="padding-left:20px;">{items}</ul>
+        <ul style="padding-left:20px; color: #333333; margin: 0;">{items}</ul>
     </div>
     """, unsafe_allow_html=True)
 
@@ -66,49 +66,73 @@ def render_nutrition_card(nutri):
     """, unsafe_allow_html=True)
 
 def render_step_card(idx, total, instruction, image_path):
+    # Container Kartu
     st.markdown(f"""
     <div style="
         background: white;
         border-radius: 12px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         overflow: hidden;
         border: 1px solid #E0E0E0;
         margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
     ">
         <div style="
             background: #D35400; 
             color: white; 
-            padding: 8px 16px; 
-            font-weight: bold;
+            padding: 10px 20px; 
+            font-weight: 700;
             display: flex; justify-content: space-between;
+            font-size: 0.95rem;
         ">
             <span>🔥 Langkah {idx + 1}</span>
             <span>{idx + 1}/{total}</span>
         </div>
     """, unsafe_allow_html=True)
     
-    # --- LOGIKA TAMPILAN GAMBAR (UPDATE) ---
-    # Cek apakah image_path berisi URL (dimulai dengan http)
+    # --- AREA GAMBAR (RESPONSIF & DIBATASI TINGGINYA) ---
+    # Kita bungkus dalam div khusus agar bisa diatur max-height nya
+    st.markdown("""
+    <style>
+        .step-image-container {
+            width: 100%;
+            max-height: 350px; /* BATAS TINGGI AGAR TIDAK PENUH SATU LAYAR */
+            overflow: hidden; /* Potong sisa gambar jika kepanjangan */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F9FAFB;
+        }
+        .step-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Gambar mengisi ruang tanpa gepeng */
+        }
+    </style>
+    <div class="step-image-container">
+    """, unsafe_allow_html=True)
+
+    # Render Gambar
     if image_path and image_path.startswith("http"):
-        # Tampilkan langsung dari internet
-        st.image(image_path, use_container_width=True)
-        
-    # Cek apakah image_path adalah file lokal
+        st.image(image_path, use_container_width=True) # Streamlit otomatis bikin ini responsif width-nya
     elif image_path and os.path.exists(image_path):
         st.image(image_path, use_container_width=True)
-        
     else:
-        # Placeholder jika kosong
+        # Placeholder
         st.markdown(f"""
-        <div style='height:200px; background:#F9FAFB; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#9CA3AF; border-bottom: 1px solid #eee;'>
-            <span style='font-size:2rem;'>🍳</span>
-            <span style='font-size:0.8rem; margin-top:5px;'>Menyiapkan ilustrasi...</span>
+        <div style='padding:40px; text-align:center; color:#9CA3AF;'>
+            <span style='font-size:2rem;'>🍳</span><br>
+            <small>Menyiapkan ilustrasi...</small>
         </div>
         """, unsafe_allow_html=True)
     
+    st.markdown("</div>", unsafe_allow_html=True) # Tutup container gambar
+    
+    # Render Teks Instruksi
     st.markdown(f"""
-        <div style="padding: 20px;">
-            <p style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; margin: 0;">
+        <div style="padding: 20px 24px;">
+            <p style="font-size: 1.05rem; line-height: 1.6; color: #374151; margin: 0;">
                 {instruction}
             </p>
         </div>
