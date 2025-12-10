@@ -1,0 +1,53 @@
+{
+    "dish": "nasi goreng",
+    "portion": "1 Orang",
+    "description": "Nasi goreng klasik yang gurih dan menggugah selera, sempurna untuk sarapan atau makan malam kilat Anda.",
+    "ingredients": [
+        "Nasi putih dingin: 150 gram (sekitar 1 piring)",
+        "Telur ayam: 1 butir",
+        "Bawang merah: 1 siung kecil (cincang halus)",
+        "Bawang putih: 1 siung kecil (cincang halus)",
+        "Cabai rawit: 1 buah (iris tipis, opsional, sesuaikan selera pedas)",
+        "Daun bawang: 1 batang (iris tipis)",
+        "Minyak goreng: 1 sendok makan",
+        "Kecap manis: 1 sendok makan",
+        "Kecap asin: 1/2 sendok teh",
+        "Garam: 1/4 sendok teh (atau sesuai selera)",
+        "Merica bubuk: Sejumput",
+        "Kerupuk atau irisan timun: Untuk pelengkap"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan. Cincang halus bawang merah, bawang putih, dan cabai rawit (jika menggunakan). Iris tipis daun bawang.",
+            "image_path": "https://image.pollinations.ai/prompt/Close-up%20of%20hands%20finely%20chopping%20garlic%2C%20shallots%2C%20and%20chilies%20on%20a%20wooden%20board%2C%20spring%20onions%20sliced.%20Hyper-realistic%2C%208k%20resolution%2C%20cinematic%20lighting%2C%20macro%20food%20photography%2C%20sharp%20focus%2C%20steam%20rising%2C%20delicious%20texture.?width=512&height=384&model=flux&nologo=true&seed=781"
+        },
+        {
+            "instruction": "Panaskan 1 sendok makan minyak goreng dalam wajan di atas api sedang.",
+            "image_path": "https://image.pollinations.ai/prompt/Overhead%20shot%2C%20a%20tablespoon%20of%20oil%20shimmering%20in%20a%20hot%20wok%20over%20a%20medium%20flame%2C%20ready.%20Hyper-realistic%2C%208k%20resolution%2C%20cinematic%20lighting%2C%20macro%20food%20photography%2C%20sharp%20focus%2C%20steam%20rising%2C%20delicious%20texture.?width=512&height=384&model=flux&nologo=true&seed=764"
+        },
+        {
+            "instruction": "Pecahkan telur ke dalam wajan, orak-arik hingga matang, lalu sisihkan ke pinggir wajan atau angkat dan letakkan di piring terpisah.",
+            "image_path": "https://image.pollinations.ai/prompt/Dynamic%20shot%2C%20an%20egg%20cracking%20into%20a%20hot%20wok%2C%20scrambling%20until%20fluffy%2C%20pushed%20aside.%20Hyper-realistic%2C%208k%20resolution%2C%20cinematic%20lighting%2C%20macro%20food%20photography%2C%20sharp%20focus%2C%20steam%20rising%2C%20delicious%20texture.?width=512&height=384&model=flux&nologo=true&seed=763"
+        },
+        {
+            "instruction": "Dalam wajan yang sama, masukkan bawang merah, bawang putih, dan cabai rawit. Tumis hingga harum dan layu.",
+            "image_path": "https://image.pollinations.ai/prompt/Close-up%20of%20chopped%20shallots%2C%20garlic%2C%20chilies%20sizzling%20in%20a%20wok%2C%20saut%C3%A9ing%20until%20fragrant%20and%20soft.%20Hyper-realistic%2C%208k%20resolution%2C%20cinematic%20lighting%2C%20macro%20food%20photography%2C%20sharp%20focus%2C%20steam%20rising%2C%20delicious%20texture.?width=512&height=384&model=flux&nologo=true&seed=778"
+        },
+        {
+            "instruction": "Masukkan nasi putih dingin ke dalam wajan. Aduk rata bersama bumbu yang sudah ditumis. Tekan-tekan nasi agar tidak menggumpal.",
+            "image_path": "https://image.pollinations.ai/prompt/Overhead%20shot%2C%20cold%20white%20rice%20added%20to%20wok%2C%20vigorously%20mixing%20with%20saut%C3%A9ed%20aromatics%2C%20pressing%20lumps.%20Hyper-realistic%2C%208k%20resolution%2C%20cinematic%20lighting%2C%20macro%20food%20photography%2C%20sharp%20focus%2C%20steam%20rising%2C%20delicious%20texture.?width=512&height=384&model=flux&nologo=true&seed=783"
+        },
+        {
+            "instruction": "Tambahkan kecap manis, kecap asin, garam, dan merica bubuk. Aduk terus hingga semua bumbu tercampur rata dan nasi mulai sedikit kering serta harum.",
+            "image_path": "https://image.pollinations.ai/prompt/Close-up%2C%20dark%20soy%20sauce%2C%20light%20soy%20sauce%2C%20salt%2C%20pepper%20drizzling%20onto%20rice%2C%20vigorously%20stirring%20until%20fragrant.%20Hyper-realistic%2C%208k%20resolution%2C%20cinematic%20lighting%2C%20macro%20food%20photography%2C%20sharp%20focus%2C%20steam%20rising%2C%20delicious%20texture.?width=512&height=384&model=flux&nologo=true&seed=794"
+        },
+        {
+            "instruction": "Masukkan kembali telur orak-arik (jika tadi diangkat) dan irisan daun bawang. Aduk sebentar hingga semua bahan tercampur sempurna.",
+            "image_path": "https://image.pollinations.ai/prompt/Scrambled%20egg%20and%20sliced%20spring%20onions%20returning%20to%20wok%2C%20gently%20folding%20into%20the%20nasi%20goreng.%20Hyper-realistic%2C%208k%20resolution%2C%20cinematic%20lighting%2C%20macro%20food%20photography%2C%20sharp%20focus%2C%20steam%20rising%2C%20delicious%20texture.?width=512&height=384&model=flux&nologo=true&seed=776"
+        },
+        {
+            "instruction": "Koreksi rasa, tambahkan bumbu jika diperlukan. Angkat dan sajikan nasi goreng selagi hangat dengan pelengkap seperti kerupuk dan irisan timun.",
+            "image_path": "https://image.pollinations.ai/prompt/Plated%20nasi%20goreng%2C%20steam%20rising%2C%20garnished%20with%20crispy%20crackers%20and%20fresh%20cucumber%20slices%2C%20ready%20to%20serve.%20Hyper-realistic%2C%208k%20resolution%2C%20cinematic%20lighting%2C%20macro%20food%20photography%2C%20sharp%20focus%2C%20steam%20rising%2C%20delicious%20texture.?width=512&height=384&model=flux&nologo=true&seed=791"
+        }
+    ]
+}
