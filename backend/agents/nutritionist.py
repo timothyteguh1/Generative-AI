@@ -1,20 +1,14 @@
-import google.generativeai as genai
+import ollama
 import json
-from config import configure_ai
 
-configure_ai()
-
-# Prioritas: Gemini 2.5 Flash -> Fallback
-try:
-    model = genai.GenerativeModel('models/gemini-2.5-flash')
-except:
-    model = genai.GenerativeModel('models/gemini-1.5-flash')
+# Pastikan model ini sudah di-pull
+MODEL_NAME = "gemma2:2b" 
 
 CYAN = "\033[96m"
 RESET = "\033[0m"
 
 def analyze_nutrition(recipe):
-    print(f"{CYAN}[NUTRITIONIST AGENT] Menghitung angka gizi...{RESET}")
+    print(f"{CYAN}[NUTRITIONIST AGENT] Menghitung angka gizi dengan Ollama...{RESET}")
     
     prompt = f"""
     Analisis resep: "{recipe['dish']}".
@@ -24,7 +18,7 @@ def analyze_nutrition(recipe):
     
     ATURAN PENTING: Output HANYA ANGKA (Integer/Number), DILARANG menulis satuan (kkal/gram).
     
-    JSON Schema:
+    JSON Schema Output:
     {{
         "calories": 500,
         "protein": 20,
@@ -34,21 +28,19 @@ def analyze_nutrition(recipe):
     """
     
     try:
-        res = model.generate_content(
-            prompt,
-            generation_config=genai.types.GenerationConfig(
-                temperature=0.1, # Rendah agar angka konsisten/faktual
-                response_mime_type="application/json"
-            )
+        response = ollama.chat(
+            model=MODEL_NAME,
+            format='json',
+            messages=[{'role': 'user', 'content': prompt}]
         )
-        data = json.loads(res.text)
+        data = json.loads(response['message']['content'])
         
-        # Python menambahkan satuan agar format UI Cantik
         return {
             "calories": f"{data.get('calories', '0')} kkal",
             "protein": f"{data.get('protein', '0')}g",
             "carbs": f"{data.get('carbs', '0')}g",
             "fat": f"{data.get('fat', '0')}g"
         }
-    except:
+    except Exception as e:
+        print(f"Error Nutritionist: {e}")
         return {"calories": "- kkal", "protein": "- g", "carbs": "-", "fat": "-"}

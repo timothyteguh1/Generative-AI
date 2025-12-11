@@ -1,0 +1,76 @@
+{
+    "dish": "Nasi Padang Ayam",
+    "portion": "1 Orang",
+    "description": "Masakan Nasi Padang Ayam adalah varian dari masakan padang yang berisi nasi, ayam goreng, dan sayur-sayuran. Masakan ini memiliki rasa pedas dan gurih.",
+    "ingredients": [
+        {
+            "name": "100g Dada Ayam",
+            "quantity": "1 potong"
+        },
+        {
+            "name": "2 butir Telur",
+            "quantity": ""
+        },
+        {
+            "name": "250ml Air",
+            "quantity": ""
+        },
+        {
+            "name": "1 sdt Garam",
+            "quantity": ""
+        },
+        {
+            "name": "1/2 sdt Merica",
+            "quantity": ""
+        },
+        {
+            "name": "1/4 sdt Pala",
+            "quantity": ""
+        },
+        {
+            "name": "10g Minyak Goreng",
+            "quantity": ""
+        },
+        {
+            "name": "1 cup Beras",
+            "quantity": "100g (bersama 200ml Air)"
+        },
+        {
+            "name": "1/2 cup Labu",
+            "quantity": "50g (bersama 25g Garam)"
+        },
+        {
+            "name": "1/4 cup Wortel",
+            "quantity": "12.5g (bersama 6.25g Garam)"
+        },
+        {
+            "name": "Sambal, Kacang Panjang, dan Daun Kemangi untuk tambahan"
+        }
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih bahan-bahan dan potong-potong sesuai kebutuhan.",
+            "image_path": "https://image.pollinations.ai/prompt/Cuci%20bersih%2C%20raw%20ingredients%2C%20kitchen%20preparation%2C%20uncooked%2C%20on%20cutting%20board%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=71275"
+        },
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan dengan api sedang. Masukkan dada ayam, garam, merica, dan pala. Goreng hingga matang dan sisihkan.",
+            "image_path": "https://image.pollinations.ai/prompt/Panaskan%20minyak%20goreng%2C%20cooking%20Nasi%20Padang%20Ayam%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=44752"
+        },
+        {
+            "instruction": "Masukkan air dalam wajan lainnya dan biarkan mendidih. Lalu masukkan beras dan aduk hingga menjadi nasi setengah matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Masukkan%20air%2C%20cooking%20Nasi%20Padang%20Ayam%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=52411"
+        },
+        {
+            "instruction": "Goreng sayur-sayuran (labu dan wortel) dengan minyak goreng yang sama dan sisihkan.",
+            "image_path": "https://image.pollinations.ai/prompt/Goreng%20sayur-sayuran%2C%20cooking%20Nasi%20Padang%20Ayam%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=44192"
+        },
+        {
+            "instruction": "Campurkan sambal, kacang panjang, dan daun kemangi sebagai topping. Tata di atas nasi dan ayam goreng.",
+            "image_path": "https://image.pollinations.ai/prompt/Campurkan%20sambal%2C%20cooking%20Nasi%20Padang%20Ayam%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=73620"
+        },
+        {
+            "instruction": "Siap disajikan.",
+            "image_path": "https://image.pollinations.ai/prompt/Siap%20disajikan%2C%20final%20dish%20Nasi%20Padang%20Ayam%2C%20garnished%2C%20beautiful%20plating%2C%20ready%20to%20serve%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=83994"
+        }
+    ]
+}

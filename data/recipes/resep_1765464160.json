@@ -1,0 +1,34 @@
+{
+    "dish": "Nasi Goreng",
+    "portion": "1 Orang",
+    "description": "Sajian sederhana dari Indonesia, Nasi Goreng adalah nasi goreng kering dengan bumbu dan isi yang menggugah selera.",
+    "ingredients": [
+        "100g Nasi Kering",
+        "50g Daging Ayam suwir-suwir",
+        "1 buah Telur",
+        "2 sdm Minyak Goreng",
+        "1 siung Bawang Bombay iris-tipis",
+        "2 buah Cabai Merah iris-tipis",
+        "1/2 sdt Garam",
+        "1/4 sdt Kaldu Ayam",
+        "1 sdm Saus Tiram"
+    ],
+    "steps": [
+        {
+            "instruction": "Panaskan 1 sdm minyak goreng dalam wajan, lalu masukkan bawang Bombay dan cabai merah. Goreng hingga layu.",
+            "image_path": "https://image.pollinations.ai/prompt/Panaskan%20minyak%20goreng%2C%20raw%20ingredients%2C%20kitchen%20preparation%2C%20uncooked%2C%20on%20cutting%20board%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=66155"
+        },
+        {
+            "instruction": "Masukkan daging ayam suwir-suwir dan telur. Aduk hingga telur matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Goreng%20bawang%20cabai%2C%20cooking%20Nasi%20Goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=81263"
+        },
+        {
+            "instruction": "Tambahkan nasi kering, garam, kaldu ayam, dan saus tiram. Aduk hingga rata.",
+            "image_path": "https://image.pollinations.ai/prompt/Masukkan%20daging%20ayam%20telur%2C%20cooking%20Nasi%20Goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=77265"
+        },
+        {
+            "instruction": "Pindahkan adonan ke piring, lalu berikan taburan bawang Bombay di atasnya.",
+            "image_path": "https://image.pollinations.ai/prompt/Tambahkan%20nasi%20garam%20kaldu%20saus%2C%20final%20dish%20Nasi%20Goreng%2C%20garnished%2C%20beautiful%20plating%2C%20ready%20to%20serve%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=1575"
+        }
+    ]
+}

@@ -1,24 +1,18 @@
-import google.generativeai as genai
+import ollama
 import json
-from config import configure_ai
+# from config import configure_ai # Tidak diperlukan lagi
 
-configure_ai()
-
-# Prioritas Model: 2.5 Flash -> Fallback ke 2.0 / 1.5 Flash
-try:
-    model = genai.GenerativeModel('models/gemini-2.5-flash')
-except:
-    try:
-        model = genai.GenerativeModel('models/gemini-2.0-flash-exp')
-    except:
-        model = genai.GenerativeModel('models/gemini-1.5-flash')
+# configure_ai() # Hapus ini
 
 CYAN = "\033[96m"
 RESET = "\033[0m"
 
+# Pastikan model ini sudah di-pull: 'ollama pull llama3'
+MODEL_NAME = "llama3"
+
 # --- FUNGSI 1: MEMBUAT RESEP (TEKS SAJA) ---
 def generate_recipe_plan(dish):
-    print(f"{CYAN}\n[PLANNER AGENT] 🧠 Meracik resep personal: {dish} (1 Porsi)...{RESET}")
+    print(f"{CYAN}\n[PLANNER AGENT] 🧠 Meracik resep personal: {dish} (1 Porsi) dengan Ollama...{RESET}")
     
     prompt = f"""
     Kamu adalah Chef Profesional. Buatkan resep masakan untuk: "{dish}".
@@ -33,25 +27,26 @@ def generate_recipe_plan(dish):
     {{
         "dish": "{dish}",
         "portion": "1 Orang",
-        "description": "Deskripsi singkat masakan yang menggugah selera (maks 1 kalimat)",
+        "description": "Deskripsi singkat masakan",
         "ingredients": [
             "Bahan 1 (dengan takaran)",
             "Bahan 2 (dengan takaran)"
         ],
         "steps": [
-            {{ "instruction": "Cuci bersih bahan, lalu potong dadu..." }},
+            {{ "instruction": "Cuci bersih bahan..." }},
             {{ "instruction": "Panaskan minyak..." }}
         ]
     }}
     """
     
     try:
-        # Gunakan JSON Mode agar tidak perlu parsing manual yang rawan error
-        res = model.generate_content(
-            prompt,
-            generation_config=genai.types.GenerationConfig(response_mime_type="application/json")
+        response = ollama.chat(
+            model=MODEL_NAME,
+            format='json', # Fitur JSON Mode Ollama
+            messages=[{'role': 'user', 'content': prompt}]
         )
-        return json.loads(res.text)
+        # Parse string JSON dari response
+        return json.loads(response['message']['content'])
     except Exception as e:
         print(f"Error Planner: {e}")
         return None
@@ -65,21 +60,15 @@ def refine_recipe_plan(old_recipe, critique):
     Kritik User: "{critique}".
     
     Tugas: Perbaiki resep agar sesuai kritik, TETAPI TETAP UNTUK 1 ORANG.
-    
-    Output JSON:
-    {{
-        "dish": "{old_recipe['dish']}",
-        "portion": "1 Orang",
-        "ingredients": ["..."],
-        "steps": [ {{ "instruction": "..." }} ]
-    }}
+    Output JSON (struktur sama seperti sebelumnya).
     """
     
     try:
-        res = model.generate_content(
-            prompt,
-            generation_config=genai.types.GenerationConfig(response_mime_type="application/json")
+        response = ollama.chat(
+            model=MODEL_NAME,
+            format='json',
+            messages=[{'role': 'user', 'content': prompt}]
         )
-        return json.loads(res.text)
+        return json.loads(response['message']['content'])
     except:
         return old_recipe

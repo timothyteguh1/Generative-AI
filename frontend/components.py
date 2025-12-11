@@ -201,7 +201,7 @@ def render_shopping_card(shopping_list):
     st.markdown("""
     <div class="info-card" style="border: 1px solid #F0F0F0;">
         <div class="card-header">🛒 Belanja Bahan</div>
-        <p style="font-size:0.9rem; color:#7f8c8d !important; margin-bottom:15px;">
+        <p style="font-size:0.9rem; color:black !important; margin-bottom:15px;">
             Klik tombol untuk beli langsung:
         </p>
     """, unsafe_allow_html=True)
