@@ -1,0 +1,57 @@
+{
+    "dish": "nasi goreng",
+    "portion": "1 Orang",
+    "description": "Nasi Goreng adalah hidangan nasional Indonesia yang terbuat dari nasi, telur, sayuran, dan protein lainnya. Resep ini akan membantu Anda membuat Nasi Goreng yang lezat dan gurih untuk 1 orang.",
+    "ingredients": [
+        {
+            "name": "Nasi mateng",
+            "quantity": "100g"
+        },
+        {
+            "name": "Telur",
+            "quantity": "1 butir"
+        },
+        {
+            "name": "Wortel",
+            "quantity": "20g"
+        },
+        {
+            "name": "Kacang panjang",
+            "quantity": "10g"
+        },
+        {
+            "name": "Dada ayam",
+            "quantity": "50g"
+        },
+        {
+            "name": "Minyak goreng",
+            "quantity": "1 sdm"
+        },
+        {
+            "name": "Garam",
+            "quantity": "0.5 sdt"
+        },
+        {
+            "name": "Merica",
+            "quantity": "0.25 sdt"
+        }
+    ],
+    "steps": [
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan, kemudian masukkan Dada ayam dan masak hingga matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Panaskan%20minyak%20goreng%2C%20raw%20ingredients%2C%20kitchen%20preparation%2C%20uncooked%2C%20on%20cutting%20board%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=95381"
+        },
+        {
+            "instruction": "Tumbuk telur dan campur dengan Nasi mateng, Wortel, Kacang panjang, Garam, dan Merica.",
+            "image_path": "https://image.pollinations.ai/prompt/Slicing%20telur%2C%20cooking%20nasi%20goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=38587"
+        },
+        {
+            "instruction": "Masukkan adonan nasi goreng ke dalam wajan yang telah dipanaskan dengan minyak goreng. Masak hingga bawahnya berwarna coklat.",
+            "image_path": "https://image.pollinations.ai/prompt/Masak%20adonan%20nasi%2C%20cooking%20nasi%20goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=27561"
+        },
+        {
+            "instruction": "Angkat Nasi Goreng dari wajan dan hidangkan langsung.",
+            "image_path": "https://image.pollinations.ai/prompt/Angkat%20Nasi%20Goreng%2C%20final%20dish%20nasi%20goreng%2C%20garnished%2C%20beautiful%20plating%2C%20ready%20to%20serve%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=4858"
+        }
+    ]
+}

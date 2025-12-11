@@ -1,0 +1,41 @@
+{
+    "dish": "Nasi Goreng",
+    "portion": "1 Orang",
+    "description": "Resep Nasi Goreng, hidangan populer Indonesia yang terbuat dari nasi goreng yang crispy di atasnya dan berisi ayam, telur, dan bumbu. Lezat dan mudah dibuat!",
+    "ingredients": [
+        "250g Nasi Goreng Sisa",
+        "50g Dada Ayam, iris tipis",
+        "2 butir Telur",
+        "1 sdt Garam",
+        "1/4 sdt Merica",
+        "1/4 sdm Minyak Wijen",
+        "1 siung Bawang Bombay, iris tipis",
+        "1 buah Cabai Rawit, potong-potong"
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih nasi goreng sisa dan sisihkan.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Wash%20leftover%20rice%2C%20featuring%20nasi%20goreng%20sisa%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=57395"
+        },
+        {
+            "instruction": "Panaskan 2 sendok makan minyak wijen dalam wajan anti-stick. Tambahkan iris tipis dada ayam dan masak hingga matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Heat%20peanut%20oil%2C%20minyak%20wijen%2C%20wajan%20anti-stick%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=32740"
+        },
+        {
+            "instruction": "Masukkan telur, garam, merica, dan cabai rawit ke dalam wadah. Aduk-aduk hingga telur menjadi setengah matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Whisk%20eggs%20and%20season%2C%20featuring%20telur%2C%20garam%2C%20merica%2C%20cabai%20rawit%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=29802"
+        },
+        {
+            "instruction": "Tambahkan nasi goreng sisa ke dalam wadah, aduk-aduk hingga semua bahan tercampur rata.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Mix%20leftover%20rice%20with%20eggs%2C%20featuring%20nasi%20goreng%20sisa%2C%20telur%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=3284"
+        },
+        {
+            "instruction": "Masukkan campuran ayam dan bumbu ke dalam wadah. Aduk-aduk hingga semua bahan tercampur rata.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Add%20cooked%20chicken%20and%20spices%2C%20featuring%20campuran%20ayam%2C%20bumbu%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=71895"
+        },
+        {
+            "instruction": "Panaskan wajan anti-stick, tuangkan adonan nasi goreng dan panggang hingga crispy di atasnya. Siap disajikan!",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Pan-fry%20Nasi%20Goreng%2C%20wajan%20anti-stick%2C%20adonan%20nasi%20goreng%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=7822"
+        }
+    ]
+}

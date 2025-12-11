@@ -3,23 +3,34 @@ import json
 import urllib.parse
 import random
 
-# Model ringan
+# Gunakan model yang Anda punya
 MODEL_NAME = "llama3"
 
 def generate_and_save_images(dish_name, steps):
-    print(f"\n[VISUALIZER] 🔗 Merancang Prompt Visual dengan Ollama...")
+    print(f"\n[VISUALIZER] 🔗 Menganalisis Konteks Visual per Langkah...")
     
     steps_text = [s['instruction'] for s in steps]
-    total_steps = len(steps)
     
-    # 1. Minta AI ambil Inti Aksi saja (tanpa embel-embel)
+    # --- 1. PROMPT ENGINEERING YANG LEBIH CERDAS ---
+    # Kita minta AI menentukan:
+    # - action: Apa yang dilakukan (misal: chopping, boiling)
+    # - object: Bahan apa yang TERLIHAT SAAT ITU (misal: raw onions, boiling water)
+    # - phase: Apakah ini PREP (persiapan), COOK (masak di kompor/oven), atau SERVE (penyajian)
+    
     prompt_gen = f"""
-    Task: Extract the MAIN PHYSICAL ACTION from these cooking steps (max 4 words per step).
-    Example: "Slicing onions", "Boiling water", "Frying chicken".
+    You are a visual director. For the recipe "{dish_name}", analyze these steps visually.
     
     Steps: {steps_text}
     
-    Output STRICT JSON: {{ "prompts": ["action1", "action2"...] }}
+    For each step, output a JSON object with:
+    1. "short_action": max 3 words (e.g., "Slicing onions", "Stirring sauce").
+    2. "visual_focus": specific ingredients visible NOW (e.g., "raw beef chunks, knife", "bubbling soup").
+    3. "phase": choose strictly one of ["PREP", "COOK", "SERVE"].
+       - PREP: cutting, washing, mixing raw ingredients.
+       - COOK: heating, frying, baking, boiling.
+       - SERVE: plating, garnishing, eating.
+    
+    Output STRICT JSON format: {{ "scenes": [ {{...}}, {{...}} ] }}
     """
     
     try:
@@ -28,54 +39,60 @@ def generate_and_save_images(dish_name, steps):
             format='json',
             messages=[{'role': 'user', 'content': prompt_gen}]
         )
-        prompts = json.loads(response['message']['content']).get('prompts', [])
-    except:
-        prompts = [f"Cooking step {i+1}" for i in range(total_steps)]
+        scenes = json.loads(response['message']['content']).get('scenes', [])
+    except Exception as e:
+        print(f"Error parsing AI response: {e}")
+        # Fallback manual jika AI gagal
+        scenes = [{"short_action": f"Step {i+1}", "visual_focus": "ingredients", "phase": "COOK"} for i in range(len(steps))]
 
-    if len(prompts) < total_steps:
-        prompts.extend([f"Step {i+1}"] * (total_steps - len(prompts)))
+    # Pastikan jumlah scene sama dengan steps
+    if len(scenes) < len(steps):
+        diff = len(steps) - len(scenes)
+        scenes.extend([{"short_action": "Cooking", "visual_focus": "food", "phase": "COOK"}] * diff)
 
     image_urls = []
     
-    # Style Dasar
-    BASE_STYLE = "hyper-realistic, 8k, cinematic lighting, photorealistic, sharp focus"
-    
-    # 2. LOGIKA PENGECEKAN LANGKAH (Step Checking Logic)
-    for i, action in enumerate(prompts):
+    # --- 2. KONSTRUKSI PROMPT GAMBAR (DYNAMIC CONTEXT) ---
+    for i, scene in enumerate(scenes):
         step_num = i + 1
         
-        # --- LOGIKA PEMBAGIAN ZONA ---
+        action = scene.get('short_action', 'Cooking')
+        objects = scene.get('visual_focus', 'food')
+        phase = scene.get('phase', 'COOK')
         
-        # A. ZONA PERSIAPAN (25% Langkah Pertama)
-        # Fokus: Bahan Mentah, Pisau, Talenan.
-        # DILARANG: Muncul nama masakan matang.
-        if step_num <= total_steps * 0.25:
-            context = "raw ingredients, kitchen preparation, uncooked, on cutting board"
-            # Jangan masukkan 'dish_name' di sini agar tidak spoiler!
-            full_prompt = f"{action}, {context}, {BASE_STYLE}"
-
-        # B. ZONA PENYAJIAN (Langkah Terakhir)
-        # Fokus: Makanan Jadi, Piring Cantik.
-        # WAJIB: Muncul nama masakan.
-        elif step_num == total_steps:
-            context = f"final dish {dish_name}, garnished, beautiful plating, ready to serve"
-            full_prompt = f"{action}, {context}, {BASE_STYLE}"
+        # Base Style (Konsisten)
+        style = "hyper-realistic, 8k, cinematic lighting, food photography, sharp focus, f/1.8 aperture"
+        
+        # Logika Prompt Berdasarkan Phase dari AI
+        if phase == "PREP":
+            # Fokus: Meja dapur, talenan, bahan mentah. JANGAN tampilkan masakan jadi.
+            environment = "on wooden cutting board, kitchen counter context, raw ingredients, bright natural light"
+            full_prompt = f"Close up shot of {action}, featuring {objects}, {environment}, {style}"
             
-        # C. ZONA MEMASAK (Sisanya / Tengah-tengah)
-        # Fokus: Wajan, Panci, Api, Uap.
-        # BOLEH: Nama masakan tapi dalam konteks 'cooking'.
-        else:
-            context = f"cooking process, sizzling in pan/pot, steam rising, kitchen stove"
-            # Kita sebut 'cooking {dish_name}' biar tidak jadi Pasta, 
-            # tapi tambah 'close-up texture' biar fokus ke tekstur bukan plating.
-            full_prompt = f"{action}, cooking {dish_name}, close-up food texture, {context}, {BASE_STYLE}"
+        elif phase == "COOK":
+            # Fokus: Kompor, uap, panci, transformasi.
+            environment = "inside cookware, steam rising, stove fire background, cooking process, sizzling texture"
+            full_prompt = f"Action shot of {action}, {objects}, {environment}, {style}"
+            
+        elif phase == "SERVE":
+            # Fokus: Hasil akhir cantik.
+            environment = f"final dish {dish_name}, restaurant plating, bokeh background, garnished perfectly"
+            full_prompt = f"Professional food photo of {dish_name}, {environment}, {style}"
         
-        # 3. Generate URL
+        else:
+            # Fallback
+            full_prompt = f"{action} {objects}, cooking {dish_name}, {style}"
+
+        # --- 3. Generate URL ---
+        print(f"✅ Step {step_num} [{phase}]: {full_prompt[:60]}...") # Debugging log
+        
         safe_prompt = urllib.parse.quote(full_prompt)
-        seed = random.randint(100, 99999)
-        url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=512&height=384&model=flux&nologo=true&seed={seed}"
+        # Gunakan seed acak agar variasi, tapi bisa diset fix jika ingin konsistensi gaya
+        seed = random.randint(100, 99999) 
+        
+        # Tambahkan 'nologo=true' dan model 'flux' (bagus untuk prompt kompleks)
+        url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1024&height=768&model=flux&nologo=true&seed={seed}"
         
         image_urls.append(url)
-        print(f"✅ Step {step_num} ({'PREP' if step_num <= total_steps*0.25 else 'COOK/SERVE'}): {action}...")
 
     return image_urls

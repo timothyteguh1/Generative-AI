@@ -1,0 +1,73 @@
+{
+    "dish": "nasi goreng",
+    "portion": "1 Orang",
+    "description": "Nasi Goreng adalah salah satu makanan populer Indonesia yang dibuat dengan nasi, telur, sayuran, dan bumbu. Resep ini akan membantu Anda membuat Nasi Goreng seimbang dan enak.",
+    "ingredients": [
+        {
+            "name": "Nasi",
+            "quantity": "100g"
+        },
+        {
+            "name": "Telur",
+            "quantity": "1 butir"
+        },
+        {
+            "name": "Wortel",
+            "quantity": "25g"
+        },
+        {
+            "name": "Kacang polong",
+            "quantity": "20g"
+        },
+        {
+            "name": "Daging ayam",
+            "quantity": "50g"
+        },
+        {
+            "name": "Bawang putih",
+            "quantity": "1 siung, cincang"
+        },
+        {
+            "name": "Garam",
+            "quantity": "0.5 sdt"
+        },
+        {
+            "name": "Merica",
+            "quantity": "0.25 sdt"
+        },
+        {
+            "name": "Saus tiram",
+            "quantity": "2 sdm"
+        }
+    ],
+    "steps": [
+        {
+            "instruction": "Panaskan minyak 1 sdm di wajan besar.",
+            "image_path": "https://image.pollinations.ai/prompt/Panaskan%20minyak%2C%20raw%20ingredients%2C%20kitchen%20preparation%2C%20uncooked%2C%20on%20cutting%20board%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=48345"
+        },
+        {
+            "instruction": "Masukkan cincangan bawang putih dan tumis hingga harum.",
+            "image_path": "https://image.pollinations.ai/prompt/Slicing%20bawang%20putih%2C%20cooking%20nasi%20goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=32380"
+        },
+        {
+            "instruction": "Masukkan daging ayam, Wortel, Kacang polong, Garam, Merica. Tumis hingga ayam matang dan sayuran empuk.",
+            "image_path": "https://image.pollinations.ai/prompt/Cooking%20ayam%2C%20cooking%20nasi%20goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=69194"
+        },
+        {
+            "instruction": "Kocok Telur di dalam mangkuk kecil. Masukkan Saus tiram dan kocok hingga rata.",
+            "image_path": "https://image.pollinations.ai/prompt/Whisk%20eggs%2C%20cooking%20nasi%20goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=30862"
+        },
+        {
+            "instruction": "Masukkan Nasi di atas wajan dan tumis hingga nasi berwarna coklat.",
+            "image_path": "https://image.pollinations.ai/prompt/Frying%20nasi%2C%20cooking%20nasi%20goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=61848"
+        },
+        {
+            "instruction": "Buat lubang di tengah Nasi, kemudian tuangkan adonan telur ke dalam lubang.",
+            "image_path": "https://image.pollinations.ai/prompt/Make%20hole%2C%20cooking%20nasi%20goreng%2C%20close-up%20food%20texture%2C%20cooking%20process%2C%20sizzling%20in%20pan/pot%2C%20steam%20rising%2C%20kitchen%20stove%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=30795"
+        },
+        {
+            "instruction": "Tumis selama 30 detik hingga Telur matang dan Nasi Goreng siap dinikmati.",
+            "image_path": "https://image.pollinations.ai/prompt/Frying%2030%20seconds%2C%20final%20dish%20nasi%20goreng%2C%20garnished%2C%20beautiful%20plating%2C%20ready%20to%20serve%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20photorealistic%2C%20sharp%20focus?width=512&height=384&model=flux&nologo=true&seed=89326"
+        }
+    ]
+}
