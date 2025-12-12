@@ -1,0 +1,33 @@
+{
+    "dish": "ayam bakar dengan nasi putih",
+    "portion": "1 Orang",
+    "description": "Ayam bakar dengan nasi putih adalah masakan sederhana namun lezat, berisi ayam yang dibakar dengan bumbu khusus dan disajikan dengan nasi putih hangat.",
+    "ingredients": [
+        "500g Dada Ayam",
+        "2 sdm Saus Tiram",
+        "1 sdt Garam",
+        "1/2 sdt Lada Hitam",
+        "2 siung Bawang Putih, cincang halus",
+        "1 buah Jeruk Nipis, peras airnya",
+        "100g Minyak Goreng",
+        "200g Nasi Putih"
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih dada ayam, kemudian keringkan denganisclosed dengan tisu.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Washing%20chicken%2C%20featuring%20%5B%27cleaned%20chicken%20breast%27%2C%20%27towel%27%5D%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=30394"
+        },
+        {
+            "instruction": "Campur Saus Tiram, Garam, Lada Hitam, dan Bawang Putih cincang. Aplikasikan pada dada ayam, tutup dengan plastik wrap, dan biarkan 30 menit untuk merekahkan bumbu.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Mixing%20marinade%2C%20featuring%20%5B%27Tiram%20sauce%2C%20spices%2C%20chopped%20onions%27%5D%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=87854"
+        },
+        {
+            "instruction": "Panaskan Minyak Goreng dalam wajan anti-stick. Bakar ayam hingga matang dan berwarna cokelat keemasan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Baking%20chicken%2C%20%5B%27oiling%20pan%2C%20sizzling%20chicken%27%5D%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=14286"
+        },
+        {
+            "instruction": "Siapkan nasi putih hangat. Potong ayam menjadi potongan-potongan, kemudian sajikan dengan nasi putih dan air jeruk nipis yang telah diperas.",
+            "image_path": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20ayam%20bakar%20dengan%20nasi%20putih%2C%20final%20dish%20ayam%20bakar%20dengan%20nasi%20putih%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=87531"
+        }
+    ]
+}
