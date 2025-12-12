@@ -1,10 +1,9 @@
 import ollama
-import json
 import io
 from PIL import Image
 
-# Pastikan model llava sudah di-pull: ollama pull llava
-VISION_MODEL = "moondream"
+# Gunakan model vision ringan
+VISION_MODEL = "moondream" 
 
 CYAN = "\033[96m"
 MAGENTA = "\033[95m"
@@ -13,52 +12,38 @@ RED = "\033[91m"
 RESET = "\033[0m"
 
 def evaluate_cooking_step(image, instruction):
-    print(f"{MAGENTA}[VISION AGENT] 👁️ Menganalisis foto masakan dengan LLaVA (Mode Santai)...{RESET}")
+    print(f"{MAGENTA}[VISION AGENT] 👁️ Melihat foto user (Mode Teks Sederhana)...{RESET}")
     
-    # --- 1. PRE-PROCESSING GAMBAR (PENTING) ---
-    # Ubah RGBA (Transparan) ke RGB (Putih) agar tidak Error dan AI tidak bingung
+    # 1. Pre-process Gambar (Wajib utk cegah error RGBA)
     if image.mode in ("RGBA", "P"):
         background = Image.new("RGB", image.size, (255, 255, 255))
         if image.mode == 'RGBA':
-            background.paste(image, mask=image.split()[3]) # 3 is the alpha channel
+            background.paste(image, mask=image.split()[3])
             image = background
         else:
             image = image.convert("RGB")
-    
-    # Konversi ke Bytes untuk dikirim ke Ollama
+            
     img_byte_arr = io.BytesIO()
     image.save(img_byte_arr, format='JPEG')
     img_bytes = img_byte_arr.getvalue()
     
-    # --- 2. PROMPT YANG LEBIH TOLERAN (LENIENT) ---
-    # Perubahan Kunci:
-    # - "Do not be strict" (Jangan kaku)
-    # - "Focus on key elements" (Fokus pada bahan/alat utama saja)
-    # - "Ignore style/lighting/background" (Abaikan gaya foto/background checkerboard)
-    
+    # 2. Prompt yang TIDAK Minta JSON (Lebih Aman utk Model Kecil)
     prompt = f"""
-    You are a helpful cooking assistant verifying user photos.
     Instruction: "{instruction}"
+    Look at the image. Does it match the instruction?
     
-    Task: Check if the image shows the MAIN INGREDIENTS or ACTION described in the instruction.
+    Rules:
+    1. Be LENIENT. If you see the main ingredients (like potatoes, water, ice), say YES.
+    2. Only say NO if the image is completely wrong (like a cat or a car).
     
-    RULES FOR JUDGING:
-    1. Be LENIENT and FORGIVING. Do not be strict.
-    2. Ignore image style, lighting, or background (e.g. checkerboard/transparent background is OK).
-    3. If you see the main object (e.g., pan, oil, specific veggie) mentioned in instruction, output "PASS".
-    4. Only output "FAIL" if the image is COMPLETELY unrelated (e.g., a photo of a cat for a cooking step).
-    
-    Output strictly JSON:
-    {{
-        "status": "PASS" or "FAIL",
-        "feedback": "Short encouraging feedback in Indonesian (max 10 words)"
-    }}
+    OUTPUT FORMAT:
+    Start your answer with "YES" or "NO", followed by a comma, then a very short reason (Indonesian).
+    Example: YES, terlihat ada potongan kentang.
     """
     
     try:
         response = ollama.chat(
             model=VISION_MODEL,
-            format='json',
             messages=[{
                 'role': 'user',
                 'content': prompt,
@@ -66,25 +51,32 @@ def evaluate_cooking_step(image, instruction):
             }]
         )
         
-        # Parse JSON output
-        content = response['message']['content']
-        # Kadang LLaVA memberikan teks sebelum JSON, kita cari kurung kurawal
-        start_idx = content.find('{')
-        end_idx = content.rfind('}') + 1
-        if start_idx != -1 and end_idx != -1:
-            data = json.loads(content[start_idx:end_idx])
-        else:
-            # Fallback jika JSON rusak tapi respon ada
-            data = {"status": "PASS", "feedback": "Terlihat oke, lanjut!"}
+        # 3. Parsing Manual (Lebih Stabil daripada JSON)
+        raw_answer = response['message']['content'].strip()
+        print(f"[DEBUG AI RAW]: {raw_answer}") # Cek apa kata AI sebenarnya di terminal
         
-        if data.get('status') == 'PASS':
-            print(f"{GREEN}[VISION AGENT] ✅ PASS: {data.get('feedback')}{RESET}")
-        else:
-            print(f"{RED}[VISION AGENT] ❌ FAIL: {data.get('feedback')}{RESET}")
+        # Ambil kata pertama (YES/NO)
+        if raw_answer.upper().startswith("YES"):
+            status = "PASS"
+            # Ambil sisa kalimat setelah koma sebagai feedback
+            parts = raw_answer.split(',', 1)
+            feedback = parts[1].strip() if len(parts) > 1 else "Bagus, sesuai!"
+            print(f"{GREEN}[VISION AGENT] ✅ PASS: {feedback}{RESET}")
             
-        return data
+        elif raw_answer.upper().startswith("NO"):
+            status = "FAIL"
+            parts = raw_answer.split(',', 1)
+            feedback = parts[1].strip() if len(parts) > 1 else "Tidak sesuai instruksi."
+            print(f"{RED}[VISION AGENT] ❌ FAIL: {feedback}{RESET}")
+            
+        else:
+            # Jika AI ngelantur ga jelas, anggap PASS aja
+            status = "PASS"
+            feedback = "Terlihat oke."
+            print(f"{GREEN}[VISION AGENT] ⚠️ AI Ragu, auto-pass.{RESET}")
+
+        return {"status": status, "feedback": feedback}
         
     except Exception as e:
         print(f"{RED}[VISION ERROR] {e}{RESET}")
-        # Default PASS jika error teknis, agar user tidak frustasi
-        return {"status": "PASS", "feedback": "AI bingung, tapi lanjut aja!"}
+        return {"status": "PASS", "feedback": "Sistem error, lanjut saja."}

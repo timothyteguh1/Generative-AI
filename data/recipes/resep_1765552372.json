@@ -1,0 +1,35 @@
+{
+    "dish": "Kentang Goreng",
+    "portion": "1 Orang",
+    "description": "Kentang goreng adalah hidangan yang populer di Indonesia, berbentuk kentang yang digoreng dengan bumbu dan rempah-rempah. Resep ini mudah dipraktekkan dan dapat menjadi snack yang enak.",
+    "ingredients": [
+        "200g Kentang",
+        "100g Tepung",
+        "1/2 sdt Garam",
+        "1/4 sdt Lada",
+        "2 siung Bawang Putih, cincang",
+        "10ml Minyak Goreng"
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih kentang dan potong menjadi beberapa bagian.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Wash%20potatoes%2C%20featuring%20kentang%20%28potatoes%29%2C%20water%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=837"
+        },
+        {
+            "instruction": "Campur tepung, garam, lada, dan bawang putih dalam wadah.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Mix%20dry%20ingredients%2C%20featuring%20tepung%20%28flour%29%2C%20garam%20%28salt%29%2C%20lada%20%28pepper%29%2C%20bawang%20putih%20%28garlic%29%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=43430"
+        },
+        {
+            "instruction": "Celupkan setiap bagian kentang ke adonan tepung sambil di-guncang agar tepung menempel dengan baik.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Coat%20potatoes%2C%20featuring%20kentang%20%28potatoes%29%2C%20tepung%20%28flour%29%20mixture%2C%20spatula%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=47406"
+        },
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan dan goreng kentang hingga berwarna coklat keemasan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Fry%20potatoes%2C%20minyak%20goreng%20%28vegetable%20oil%29%2C%20wajan%20%28frying%20pan%29%2C%20kentang%20%28potatoes%29%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=46171"
+        },
+        {
+            "instruction": "Angkat dan tiriskan kentang goreng. Siap disajikan.",
+            "image_path": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20Kentang%20Goreng%2C%20final%20dish%20Kentang%20Goreng%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=20735"
+        }
+    ]
+}
