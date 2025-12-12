@@ -35,44 +35,14 @@ def render_chat_message(role, content):
     """, unsafe_allow_html=True)
 
 def render_ingredient_card(ingredients):
-    formatted_items = []
-    
-    for item in ingredients:
-        display_text = ""
-        
-        # KASUS 1: Jika item adalah Dictionary (Hasil Grocery Agent)
-        # Contoh input: {'Beras Emas': 1000.0}
-        if isinstance(item, dict):
-            for name, qty in item.items():
-                # Format: "Beras Emas: 1000.0" (Bisa tambah satuan jika ada logika satuan)
-                display_text = f"<b>{name}</b>: {qty}"
-        
-        # KASUS 2: Jika item adalah String (Hasil Planner Agent)
-        elif isinstance(item, str):
-            # Pembersihan Ekstra: Terkadang LLM mengembalikan string yang 'mirip' dict
-            # Contoh: "{'Ayam': 100}" tapi tipe datanya string
-            if item.strip().startswith("{") and ":" in item:
-                # Kita bersihkan kurung kurawal dan tanda petik
-                clean_text = item.replace("{", "").replace("}", "").replace("'", "").replace('"', "")
-                display_text = clean_text
-            else:
-                # Contoh input normal: "100g Dada Ayam"
-                display_text = item
-        
-        # Masukkan ke list jika valid
-        if display_text:
-            formatted_items.append(f"<li style='margin-bottom:5px; color:#2C3E50;'>{display_text}</li>")
-
-    # Gabungkan semua item menjadi satu string HTML
-    items_html = "".join(formatted_items)
+    # CSS Inline color black agar teks bahan terlihat jelas
+    items = "".join([f"<li style='margin-bottom:5px; color:#2C3E50;'>{i}</li>" for i in ingredients])
     
     st.markdown(f"""
-    <div class="info-card" style="border-top: 4px solid #F39C12; background-color: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px;">
-        <div class="card-header" style="font-weight: bold; font-size: 1.2em; color: #E67E22; margin-bottom: 10px;">
-            🛒 Bahan-Bahan
-        </div>
+    <div class="info-card" style="border-top: 4px solid #F39C12;">
+        <div class="card-header">🛒 Bahan-Bahan</div>
         <ul style="padding-left:20px; color:#2C3E50; margin:0;">
-            {items_html}
+            {items}
         </ul>
     </div>
     """, unsafe_allow_html=True)
