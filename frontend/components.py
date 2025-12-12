@@ -35,14 +35,28 @@ def render_chat_message(role, content):
     """, unsafe_allow_html=True)
 
 def render_ingredient_card(ingredients):
-    # CSS Inline color black agar teks bahan terlihat jelas
-    items = "".join([f"<li style='margin-bottom:5px; color:#2C3E50;'>{i}</li>" for i in ingredients])
+    items_html = ""
+    
+    for i in ingredients:
+        text = ""
+        # Cek apakah tipe datanya Dictionary (JSON)
+        if isinstance(i, dict):
+            # Ambil nama dan takaran, gabungkan jadi string cantik
+            name = i.get('name', '')
+            amount = i.get('amount', '')
+            # Contoh hasil: "200g Nasi putih"
+            text = f"<b>{amount}</b> {name}".strip()
+        else:
+            # Jika String biasa, langsung pakai
+            text = str(i)
+            
+        items_html += f"<li style='margin-bottom:5px; color:#2C3E50;'>{text}</li>"
     
     st.markdown(f"""
     <div class="info-card" style="border-top: 4px solid #F39C12;">
         <div class="card-header">🛒 Bahan-Bahan</div>
         <ul style="padding-left:20px; color:#2C3E50; margin:0;">
-            {items}
+            {items_html}
         </ul>
     </div>
     """, unsafe_allow_html=True)

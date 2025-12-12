@@ -1,0 +1,61 @@
+{
+    "dish": "nasi goreng",
+    "portion": "1 Orang",
+    "description": "Nasi Goreng adalah masakan khas Indonesia yang terbuat dari nasi goreng, sayuran, dan protein. Dalam resep ini, kita akan membuat Nasi Goreng sederhana untuk 1 orang.",
+    "ingredients": [
+        {
+            "name": "Nasi mateng",
+            "amount": "100g"
+        },
+        {
+            "name": "Tahu",
+            "amount": "50g"
+        },
+        {
+            "name": "Kecap manis",
+            "amount": "2 tsp"
+        },
+        {
+            "name": "Garam",
+            "amount": "1/4 tsp"
+        },
+        {
+            "name": "Minyak goreng",
+            "amount": "1 tsp"
+        },
+        {
+            "name": "Bawang bombai",
+            "amount": "1 siung, cincang"
+        },
+        {
+            "name": "Kakao",
+            "amount": "1/2 sdm"
+        },
+        {
+            "name": "Telur",
+            "amount": "1 butir, kocok lepas"
+        }
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih nasi mateng dan tahu. Potong-potong tahu menjadi kecil.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Wash%20rice%2C%20featuring%20clean%20cooked%20rice%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=12330"
+        },
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan. Tambahkan bawang bombai cincang dan tumis hingga harum.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Fry%20aromatics%2C%20sizzling%20onions%2C%20oil%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=32488"
+        },
+        {
+            "instruction": "Masukkan nasi mateng, tahu, kecap manis, garam, dan kakao. Aduk-aduk hingga tercampur rata.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Mix%20filling%2C%20cooked%20rice%2C%20tofu%20cubes%2C%20sweet%20soy%20sauce%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=42487"
+        },
+        {
+            "instruction": "Kocok telur lepas lalu tambahkan pada wajan. Aduk-aduk hingga telur matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Scramble%20eggs%2C%20beaten%20eggs%2C%20wok%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=78065"
+        },
+        {
+            "instruction": "Pindahkan nasi goreng ke piring dan siap dihidangkan.",
+            "image_path": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20nasi%20goreng%2C%20final%20dish%20nasi%20goreng%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=88740"
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "dish": "Nasi Goreng",
+    "portion": "1 Orang",
+    "description": "Masakan nasional Indonesia yang berisi nasi goreng yang digoreng dengan tambahan sayuran, daging ayam, dan telur.",
+    "ingredients": [
+        {
+            "name": "Nasi putih",
+            "amount": "200g"
+        },
+        {
+            "name": "Dada ayam",
+            "amount": "50g"
+        },
+        {
+            "name": "Wortel",
+            "amount": "20g"
+        },
+        {
+            "name": "Bawang bombai",
+            "amount": "10g"
+        },
+        {
+            "name": "Telur",
+            "amount": "1 butir"
+        },
+        {
+            "name": "Garam",
+            "amount": "0.5 sdt"
+        },
+        {
+            "name": "Merica",
+            "amount": "0.25 sdt"
+        },
+        {
+            "name": "Minyak goreng",
+            "amount": "20ml"
+        }
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan dan panaskan minyak goreng dalam wajan dengan api sedang.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Prepare%20ingredients%2C%20featuring%20all%20ingredients%2C%20cooking%20oil%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=77745"
+        },
+        {
+            "instruction": "Masukkan dada ayam, wortel, dan bawang bombai ke dalam wajan. Goreng hingga harum dan matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Sear%20chicken%20and%20veggies%2C%20chicken%2C%20vegetables%2C%20pan%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=26424"
+        },
+        {
+            "instruction": "Kocok telur dan campur dengan nasi putih. Tambahkan garam dan merica secukupnya.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Beat%20eggs%20and%20mix%20with%20rice%2C%20featuring%20eggs%2C%20white%20rice%2C%20whisk%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=62727"
+        },
+        {
+            "instruction": "Masukkan adonan nasi ke dalam wajan dan goreng hingga matang dan krispi. Angkat dan siap dihidangkan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Fry%20the%20rice%20mixture%2C%20fried%20rice%2C%20pan%2C%20spatula%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=20013"
+        }
+    ]
+}

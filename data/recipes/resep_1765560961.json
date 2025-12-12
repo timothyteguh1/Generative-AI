@@ -1,0 +1,37 @@
+{
+    "dish": "Kentang Goreng",
+    "portion": "1 Orang",
+    "description": "Kriuk-kriuk kentang goreng yang gurih dan renyah, sangat cocok sebagai makanan pendamping atau camilan",
+    "ingredients": [
+        "150g Kentang segar",
+        "2 sdm Minyak Goreng",
+        "1 sdt Garam",
+        "1/4 sdt Lada bubuk"
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih kentang dengan air mengalir.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Washing%20potatoes%2C%20featuring%20cleaning%20potatoes%20in%20running%20water%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=89722"
+        },
+        {
+            "instruction": "Kupas kulit kentang hingga bersih.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Peeling%20potatoes%2C%20featuring%20peeled%20potato%2C%20knife%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=12589"
+        },
+        {
+            "instruction": "Potong kentang menjadi bentuk dadu kecil.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Cubing%20potatoes%2C%20featuring%20cubed%20potatoes%2C%20cutting%20board%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=37543"
+        },
+        {
+            "instruction": "Campur minyak goreng, garam, dan lada bubuk dalam sebuah wadah.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Mixing%20batter%2C%20featuring%20oil%2C%20salt%2C%20pepper%20in%20a%20bowl%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=41373"
+        },
+        {
+            "instruction": "Celupkan masing-masing potongan kentang ke dalam adonan minyak goreng tersebut. Pastikan bahwa semua bagian kentang terlapisi oleh adonan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Coating%20potatoes%2C%20potatoes%20coated%20with%20batter%2C%20hands%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=98756"
+        },
+        {
+            "instruction": "Goreng kentang dengan api sedang hingga berwarna emas dan kriuk-kriuk. Angkat dari kompor dan tiriskan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Frying%20potatoes%2C%20sizzling%20fried%20potatoes%20in%20a%20pan%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=2539"
+        }
+    ]
+}

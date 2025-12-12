@@ -1,0 +1,45 @@
+{
+    "dish": "Kentang Goreng",
+    "portion": "1 Orang",
+    "description": "Kentang goreng adalah salah satu masakan favorit yang digemari oleh banyak orang. Cara membuatnya sangat mudah dan cepat, hanya dengan menggunakan beberapa bahan sederhana.",
+    "ingredients": [
+        {
+            "name": "Kentang",
+            "quantity": "2 buah"
+        },
+        {
+            "name": "Terigu",
+            "quantity": "1/4 cup"
+        },
+        {
+            "name": "Garam",
+            "quantity": "1/4 sdt"
+        },
+        {
+            "name": "Lada",
+            "quantity": "1/8 sdt"
+        },
+        {
+            "name": "Minyak goreng",
+            "quantity": "2 sdm"
+        }
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih 2 buah kentang, lalu potong-potong menjadi irisan tipis.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Peeling%20potatoes%2C%20featuring%202%20clean%20potatoes%2C%20knife%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=35703"
+        },
+        {
+            "instruction": "Siapkan wajan dan panaskan minyak goreng dengan api sedang. Tambahkan 1/4 cup terigu, garam, dan lada. Aduk-aduk hingga tercampur rata.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Mixing%20batter%2C%20flour%2C%20eggs%2C%20potato%20slices%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=19559"
+        },
+        {
+            "instruction": "Masukkan irisan kentang ke dalam adonan terigu, garam, dan lada. Aduk-aduk hingga kentang tertutup sempurna oleh adonan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Coating%20potatoes%2C%20potato%20slices%2C%20flour%20mixture%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=83276"
+        },
+        {
+            "instruction": "Goreng kentang dengan api sedang hingga berwarna coklat keemasan dan renyah. Angkat dan tiriskan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Frying%20potatoes%2C%20sizzling%20potatoes%2C%20pan%20oil%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=46635"
+        }
+    ]
+}
