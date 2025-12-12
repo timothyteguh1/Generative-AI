@@ -5,10 +5,35 @@ from frontend.components import render_ingredient_card, render_nutrition_card, r
 from backend.agents.vision import evaluate_cooking_step
 from backend.agents.consultant import ask_chef_consultant
 
+# --- FUNGSI POPUP (DIALOG) SELESAI ---
+@st.dialog("🎉 Masakan Selesai!")
+def show_finish_dialog():
+    st.markdown("### 🥳 Hore! Kamu Hebat Chef!")
+    st.write("Kamu telah menyelesaikan semua langkah resep ini dengan sempurna.")
+    st.write("Jangan lupa foto hasil akhirnya dan nikmati makanannya! 🍽️")
+    st.balloons()
+    
+    # Tombol Reset
+    if st.button("🏠 Kembali ke Menu Utama", type="primary", use_container_width=True):
+        # Reset Semua State
+        st.session_state.recipe = None
+        st.session_state.messages = [{"role": "assistant", "content": "Halo! ChefBot siap bantu. Mau masak apa lagi sekarang?"}]
+        st.session_state.step_index = 0
+        st.session_state.nutrition = None
+        st.session_state.shopping = None
+        st.rerun()
+
 def render_cooking_view():
     recipe = st.session_state.recipe
     idx = st.session_state.step_index
     total = len(recipe['steps'])
+    
+    # --- CEK SELESAI ---
+    # Jika index langkah sudah melebihi jumlah langkah, tampilkan Popup
+    if idx >= total:
+        show_finish_dialog()
+        return # Stop render agar tidak error index
+
     step_data = recipe['steps'][idx]
     instruction = step_data.get('instruction', str(step_data))
     current_img_path = step_data.get('image_path', None)
@@ -32,30 +57,43 @@ def render_cooking_view():
         
         st.write("")
         
-        # --- UPLOAD & VISION ---
-        with st.expander("📸 UPLOAD BUKTI MASAK", expanded=True):
-            uploaded_file = st.file_uploader("Kirim foto:", type=["jpg","png"], key=f"up_{idx}")
+        # --- UPLOAD & VISION (DIPERBARUI) ---
+        with st.expander("📸 UPLOAD BUKTI MASAK (Opsional)", expanded=True):
+            uploaded_file = st.file_uploader("Kirim foto untuk dinilai Juri AI:", type=["jpg","png"], key=f"up_{idx}")
             
             if uploaded_file:
                 image = Image.open(uploaded_file)
                 st.image(image, width=250)
-                
+            
+            st.write("")
+            
+            # --- DUA TOMBOL: NILAI vs LEWATI ---
+            btn_col1, btn_col2 = st.columns(2)
+            
+            with btn_col1:
+                # Tombol Juri AI
                 if st.button("🔍 Nilai Masakan", type="primary", use_container_width=True):
-                    with st.spinner("Juri menilai..."):
-                        # Panggil Vision Agent yang sudah diperbaiki
-                        res = evaluate_cooking_step(image, instruction)
-                    
-                    if res['status'] == 'PASS':
-                        st.success(f"✅ {res['feedback']}")
-                        time.sleep(2)
-                        st.session_state.step_index += 1
-                        if st.session_state.step_index >= total:
-                            st.balloons()
-                            st.session_state.recipe = None
-                            st.rerun()
-                        st.rerun()
+                    if not uploaded_file:
+                        st.warning("Upload foto dulu dong Chef! 📸")
                     else:
-                        st.error(f"❌ {res['feedback']}")
+                        with st.spinner("Juri sedang mencicipi..."):
+                            res = evaluate_cooking_step(image, instruction)
+                        
+                        if res['status'] == 'PASS':
+                            st.success(f"✅ {res['feedback']}")
+                            time.sleep(1)
+                            st.session_state.step_index += 1
+                            st.rerun()
+                        else:
+                            st.error(f"❌ {res['feedback']}")
+            
+            with btn_col2:
+                # Tombol Skip (Jalan Pintas)
+                if st.button("⏩ Lewati Langkah", use_container_width=True):
+                    st.info("Langkah dilewati! (Juri tutup mata 🙈)")
+                    time.sleep(0.5)
+                    st.session_state.step_index += 1
+                    st.rerun()
 
     # --- CHAT CONSULTANT ---
     st.markdown("""
@@ -76,7 +114,8 @@ def render_cooking_view():
         st.session_state.messages.append({"role": "assistant", "content": ans})
         st.rerun()
 
-    if st.button("🔄 Reset Resep / Masak Ulang", use_container_width=True):
+    # Tombol Darurat Reset
+    if st.button("🔄 Batal Masak / Reset", use_container_width=True):
         st.session_state.recipe = None
         st.session_state.messages = []
         st.rerun()

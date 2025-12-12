@@ -1,0 +1,37 @@
+{
+    "dish": "nasi goreng",
+    "portion": "1 Orang",
+    "description": "Nasi Goreng adalah salah satu hidangan populer di Indonesia, terbuat dari nasi yang digoreng dengan berbagai bahan seperti ayam, telur, dan sayuran. Resep ini membuat Nasi Goreng yang crispy dan enak untuk 1 orang.",
+    "ingredients": [
+        "100g Dada Ayam (potong-potong)",
+        "2 butir Telur",
+        "1 cup Nasi Goreng (nasi yang digoreng menjadi keping-keping)",
+        "1/4 cup Daun Bawang (iris tipis)",
+        "1 sdt Garam",
+        "1/2 sdt Merica",
+        "1 sdm Minyak Goreng",
+        "1 sdm Saus Tiram"
+    ],
+    "steps": [
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan dengan api sedang. Masukkan potongan ayam dan masak hingga matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Heat%20oil%20in%20pan%2C%20hot%20oil%20in%20pan%2C%20frying%20spatula%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=1631"
+        },
+        {
+            "instruction": "Pukul telur menjadi 2 butir. Masukkan ke dalam wajan dan masak hingga telur setengah matang.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Beat%20eggs%2C%20featuring%20eggs%20being%20beaten%20with%20a%20fork%20or%20spoon%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=45182"
+        },
+        {
+            "instruction": "Masukkan nasi goreng, daun bawang, garam, merica, minyak goreng, dan saus tiram ke dalam wajan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Add%20ingredients%20to%20pan%2C%20pan%20containing%20oil%2C%20chicken%20pieces%2C%20chopped%20scallions%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=97419"
+        },
+        {
+            "instruction": "Aduk-aduk semua bahan hingga rata dan sisihkan.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Mix%20and%20combine%2C%20mixing%20spatula%20moving%20among%20various%20food%20items%20in%20a%20pan%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=61152"
+        },
+        {
+            "instruction": "Siapkan sebuah piring. Masukkan Nasi Goreng yang sudah diaduk-aduk tadi ke dalam piring. Siap untuk disajikan.",
+            "image_path": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20nasi%20goreng%2C%20final%20dish%20nasi%20goreng%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=90427"
+        }
+    ]
+}

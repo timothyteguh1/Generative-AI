@@ -1,0 +1,30 @@
+{
+    "dish": "Kentang Goreng",
+    "portion": "1 Orang",
+    "description": "Masakan kentang goreng yang crispy dan gurih, perfect untuk camilan atau sarapan pagi.",
+    "ingredients": [
+        "250g Kentang Potong",
+        "100ml Minyak Goreng",
+        "1 sdt Garam",
+        "0.5 sdt Merica",
+        "2 siung Bawang Putih, cincang"
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih kentang potong dan keringkan dengan handuk bersih.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Wash%20potatoes%2C%20featuring%20%5B%27clean%20potatoes%27%2C%20%27water%27%5D%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=91298"
+        },
+        {
+            "instruction": "Panaskan minyak goreng di wajan anti-stick, kemudian tambahkan garam, merica, dan bawang putih. Aduk rata.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Heat%20oil%2C%20season%2C%20%5B%27hot%20oil%27%2C%20%27spices%27%5D%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=81315"
+        },
+        {
+            "instruction": "Masukkan kentang potong ke dalam wajan dan aduk rata hingga kentang terbalut dengan bumbu. Biarkan beberapa menit agar bumbu meresap.",
+            "image_path": "https://image.pollinations.ai/prompt/Close%20up%20shot%20of%20Marinate%20potatoes%2C%20featuring%20%5B%27potatoes%20with%20spices%27%2C%20%27wok%20or%20frying%20pan%27%5D%2C%20on%20wooden%20cutting%20board%2C%20kitchen%20counter%20context%2C%20raw%20ingredients%2C%20bright%20natural%20light%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=33120"
+        },
+        {
+            "instruction": "Goreng kentang di atas api sedang-sedih hingga crispy dan gurih. Angkat dan tiriskan minyak yang berlebih.",
+            "image_path": "https://image.pollinations.ai/prompt/Action%20shot%20of%20Fry%20potatoes%2C%20%5B%27frying%20potatoes%27%2C%20%27hot%20oil%27%5D%2C%20inside%20cookware%2C%20steam%20rising%2C%20stove%20fire%20background%2C%20cooking%20process%2C%20sizzling%20texture%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture?width=1024&height=768&model=flux&nologo=true&seed=81336"
+        }
+    ]
+}
