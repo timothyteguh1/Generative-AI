@@ -1,0 +1,47 @@
+{
+    "dish": "Nasi Goreng Spesial Chef",
+    "portion": "1 Orang",
+    "description": "Savor the rich flavors of our signature nasi goreng, crafted with premium ingredients and presented with flair. A harmonious balance of savory, sweet, and spicy notes will delight your senses.",
+    "ingredients": [
+        "Minyak Goreng (2 sdm)",
+        "Bawang Putih (2 siung, cincang)",
+        "Dada Ayam (100g, potong dadu)",
+        "Nasi Putih (200g)",
+        "Kecap Manis (1 sdm)",
+        "Garam (1/2 sdt)",
+        "Lada Bubuk (1/4 sdt)",
+        "Telur (1 butir)",
+        "Daun Bawang (iris tipis)"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan (Mise en place). Cincang halus bawang putih dan potong ayam.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Panaskan wajan dengan api besar, tuang minyak goreng. Panaskan hingga minyak berwarna coklat keemasan (wok hei).",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Tumis bawang putih hingga harum keemasan.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Masukkan ayam, masak hingga berubah warna. Aduk cepat dengan api besar.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Masukkan nasi, aduk cepat dengan api besar. Pastikan nasi tidak gosong atau hangat.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Tambahkan kecap, garam, dan lada. Aduk rata (Koreksi Rasa). Tambahkan telur kocok dan aduk rata.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Masukkan daun bawang, aduk cepat hingga daun bawang layu. Matikan api.",
+            "duration_minutes": 1
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20Nasi%20Goreng%20Spesial%20Chef%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=24869"
+}

@@ -1,0 +1,32 @@
+{
+    "dish": "kentang goreng",
+    "portion": "1 Orang",
+    "description": "Kentang goreng adalah camilan populer yang digemari banyak orang. Banyak variasi, tapi resep ini menggunakan kentang sebagai bahan utama.",
+    "ingredients": [
+        "Biji kentang (4-6 butir)",
+        "Garam (secukupnya)"
+    ],
+    "steps": [
+        {
+            "instruction": "Step 1: Cuci bersih kentang dengan air mengalir. Pastikan tidak ada kotoran atau lumpur",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Step 2: Potong kentang menjadi potongan kecil-kecil, sekitar 1 cm x 1 cm",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Step 3: Siapkan minyak goreng dalam wajan, panaskan minyak hingga suhu optimal",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Step 4: Masukkan potongan kentang ke dalam wajan yang sudah dipanaskan, goreng hingga warna kuning keemasan",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Step 5: Angkat kentang goreng dari wajan dan tiriskan minyak yang berlebihan. Berikan garam secukupnya sebagai rasa",
+            "duration_minutes": 1
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20kentang%20goreng%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=14071"
+}

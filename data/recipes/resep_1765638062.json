@@ -1,0 +1,32 @@
+{
+    "dish": "kentang goreng",
+    "portion": "1 Orang",
+    "description": "Crispy potato fritters that will delight your taste buds!",
+    "ingredients": [
+        "Bahan 1: Kentang (2-3 buah)",
+        "Bahan 2: Tepung roti (200gr), Bahan 3: Garam (secukupnya)"
+    ],
+    "steps": [
+        {
+            "instruction": "Step 1: Kupas kulit kentang dan potong-potong menjadi kecil.",
+            "duration_minutes": 4
+        },
+        {
+            "instruction": "Step 2: Campurkan tepung roti, garam secukupnya. Tambahkan sedikit air untuk membuat adonan agak lembut.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Step 3: Celupkan kentang ke dalam adonan dan goreng di minyak panas hingga berwarna keemasan.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Step 4: Angkat kentang goreng dari minyak dan letakkan di atas kertas minyak untuk mengurangi berlebihan minyak.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Step 5: Sajikan kentang goreng hangat dengan bawang goreng atau sambal sesuai selera.",
+            "duration_minutes": 0
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20kentang%20goreng%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=60281"
+}

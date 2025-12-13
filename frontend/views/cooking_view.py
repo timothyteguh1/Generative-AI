@@ -1,33 +1,58 @@
 import streamlit as st
 from PIL import Image
 import time
+import textwrap 
 from frontend.components import render_ingredient_card, render_nutrition_card, render_step_card, render_shopping_card, render_chat_message
 from backend.agents.vision import evaluate_cooking_step
 from backend.agents.consultant import ask_chef_consultant
 
-# --- FUNGSI POPUP (DIALOG) SELESAI ---
-# Diupdate untuk menerima gambar dan nama masakan
+# --- FUNGSI POPUP (DIALOG) DENGAN LOADING SCENE ---
 @st.dialog("🎉 Masakan Selesai!", width="large")
 def show_finish_dialog(image_url=None, dish_name=""):
     st.markdown(f"### 🥳 Hore! {dish_name} Siap Disajikan!")
     
-    # --- TAMPILKAN GAMBAR FINAL DI SINI ---
+    # Container Kosong untuk Animasi Loading / Gambar
+    visual_container = st.empty()
+    
+    # 1. TAMPILKAN LOADING SCENE DULU
+    loading_html = textwrap.dedent("""
+        <div style="
+            text-align: center; 
+            padding: 40px 20px; 
+            background-color: #FFF3E0; 
+            border: 2px dashed #D35400; 
+            border-radius: 15px; 
+            margin-bottom: 20px;
+        ">
+            <div style="font-size: 4rem; margin-bottom: 10px; animation: bounce 1s infinite;">👨‍🍳</div>
+            <h3 style="color: #D35400; margin: 0; font-family: sans-serif;">Chef sedang menata piring...</h3>
+            <p style="color: #888; margin-top: 5px; font-size: 0.9rem;">Memberikan sentuhan terakhir ✨</p>
+        </div>
+    """)
+    visual_container.markdown(loading_html, unsafe_allow_html=True)
+    
+    # 2. SIMULASI DELAY
+    time.sleep(2.0)
+    
+    # 3. BERSIHKAN LOADING & TAMPILKAN GAMBAR
+    visual_container.empty()
+    
     if image_url:
-        st.markdown("""
-        <style>
-            .final-image-container {
-                border-radius: 15px;
-                overflow: hidden;
-                box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-                margin-bottom: 20px;
-            }
-        </style>
-        """, unsafe_allow_html=True)
-        st.markdown('<div class="final-image-container">', unsafe_allow_html=True)
-        st.image(image_url, use_container_width=True, caption=f"Hasil karya Chef: {dish_name}")
-        st.markdown('</div>', unsafe_allow_html=True)
+        # Tampilkan Gambar Final
+        st.image(
+            image_url, 
+            use_container_width=True, 
+            caption=f"✨ Hasil Karya: {dish_name}"
+        )
     else:
-        st.write("Kamu telah menyelesaikan semua langkah resep ini dengan sempurna.")
+        # Fallback Jika Gambar Gagal
+        fallback_html = textwrap.dedent(f"""
+        <div style="text-align: center; padding: 40px; background: #F5F5F5; border-radius: 12px; color: #888;">
+            <div style="font-size: 3rem;">🍽️</div>
+            <p>Gambar {dish_name} siap dalam imajinasi!</p>
+        </div>
+        """)
+        st.markdown(fallback_html, unsafe_allow_html=True)
 
     st.write("Jangan lupa foto hasil karyamu sebelum disantap! 🍽️")
     st.balloons()
@@ -36,7 +61,6 @@ def show_finish_dialog(image_url=None, dish_name=""):
 
     # Tombol Reset
     if st.button("🏠 Kembali ke Menu Utama", type="primary", use_container_width=True):
-        # Reset Semua State
         st.session_state.recipe = None
         st.session_state.messages = []
         st.session_state.step_index = 0
@@ -51,48 +75,48 @@ def render_cooking_view():
     
     # --- CEK SELESAI ---
     if idx >= total:
-        # Panggil dialog dengan mengirim URL gambar dan nama masakan
         show_finish_dialog(recipe.get('final_image'), recipe['dish'])
         return 
 
     step_data = recipe['steps'][idx]
     instruction = step_data.get('instruction', str(step_data))
-    # Ambil durasi waktu dari resep, default 2 menit jika kosong/error
     duration_minutes = step_data.get('duration_minutes', 2)
 
-    # --- JUDUL (Gambar final DIHAPUS dari sini) ---
+    # JUDUL
     st.markdown(f"<h2 style='text-align:center; color:#D35400; margin-bottom: 25px;'>🍽️ {recipe['dish']}</h2>", unsafe_allow_html=True)
 
     col1, col2 = st.columns([1, 2], gap="large")
 
-    # --- KOLOM KIRI (INFO) ---
+    # KOLOM KIRI (INFO)
     with col1:
         render_ingredient_card(recipe['ingredients'])
         render_nutrition_card(st.session_state.nutrition)
         st.write("")
         render_shopping_card(st.session_state.shopping)
 
-    # --- KOLOM KANAN (LANGKAH & TIMER) ---
+    # KOLOM KANAN (LANGKAH & TIMER)
     with col2:
-        # Progress bar yang lebih cantik
         st.markdown(f"""
-            <div style="margin-bottom: 10px; font-weight:600; color:#D35400;">Progress Memasak: {int(((idx) / total) * 100)}%</div>
+            <div style="margin-bottom: 5px; font-weight:600; color:#D35400; font-size:0.9rem;">
+                Progress Memasak: {int(((idx) / total) * 100)}%
+            </div>
         """, unsafe_allow_html=True)
         st.progress(int(((idx) / total) * 100))
         
-        # Panggil render card dengan parameter DURASI
+        # Render Kartu Langkah
         render_step_card(idx, total, instruction, duration_minutes)
         
         st.write("")
         
-        # --- UPLOAD & VISION ---
+        # UPLOAD & VISION
         with st.expander("📸 UPLOAD BUKTI MASAK (Opsional)", expanded=True):
             st.write("Kirim foto untuk dinilai Juri AI:")
             uploaded_file = st.file_uploader("", type=["jpg","png"], key=f"up_{idx}", label_visibility="collapsed")
             
             if uploaded_file:
                 image = Image.open(uploaded_file)
-                st.image(image, width=250, style="border-radius:10px;")
+                # --- PERBAIKAN DI SINI: Hapus parameter style ---
+                st.image(image, width=250) 
             
             st.write("")
             
@@ -115,14 +139,13 @@ def render_cooking_view():
                             st.error(f"❌ {res['feedback']}")
             
             with btn_col2:
-                 # Tombol skip dengan style outline agar berbeda
                 if st.button("⏩ Lewati Langkah", use_container_width=True):
                     st.info("Langkah dilewati! (Juri tutup mata 🙈)")
                     time.sleep(0.5)
                     st.session_state.step_index += 1
                     st.rerun()
 
-    # --- CHAT CONSULTANT ---
+    # CHAT CONSULTANT
     st.divider()
     st.markdown("""
         <p style='color: #2C3E50; font-size: 1rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center;'>

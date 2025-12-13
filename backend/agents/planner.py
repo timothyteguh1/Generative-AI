@@ -1,41 +1,64 @@
 import ollama
 import json
 
-# Pastikan model ini sudah di-pull
+# Pastikan model ini sudah di-pull di Ollama Anda (misal: llama3)
 MODEL_NAME = "llama3"
 
 CYAN = "\033[96m"
 RESET = "\033[0m"
 
-# --- FUNGSI 1: MEMBUAT RESEP (TEKS + WAKTU) ---
+# --- FUNGSI 1: MEMBUAT RESEP (PROFESSIONAL CHEF STANDARD) ---
 def generate_recipe_plan(dish):
-    print(f"{CYAN}\n[PLANNER AGENT] 🧠 Meracik resep & estimasi waktu: {dish} (1 Porsi)...{RESET}")
+    print(f"{CYAN}\n[PLANNER AGENT] 👨‍🍳 Executive Chef meracik resep Premium: {dish}...{RESET}")
     
-    # --- PROMPT DIPERBARUI UNTUK MEMINTA DURASI WAKTU ---
+    # --- PROMPT: EXECUTIVE CHEF STANDARD ---
     prompt = f"""
-    Kamu adalah Chef Profesional. Buatkan resep masakan untuk: "{dish}".
-    Gunakan Bahasa Indonesia.
+    Bertindaklah sebagai **EXECUTIVE CHEF HOTEL BINTANG 5**.
+    Tugas: Buatkan resep "Signature Dish" untuk menu: "{dish}" (1 Porsi).
     
-    ATURAN SANGAT PENTING (STRICT RULES):
-    1. PORSI: WAJIB UNTUK 1 ORANG (Single Serving).
-    2. BAHAN: Harus ada takaran spesifik (misal: "100g", "2 sdm").
-    3. LANGKAH & WAKTU (SANGAT PENTING):
-       - SATU LANGKAH = HANYA SATU AKSI FISIK.
-       - Berikan estimasi waktu pengerjaan (duration_minutes) dalam Integer untuk setiap langkah.
-       - Jika langkah sangat cepat (misal: sajikan), tulis 1 menit.
+    STANDAR KUALITAS (WAJIB):
+    1. **RASA HARUS MEWAH (DELICIOUS)**:
+       - Jangan buat resep hambar/sederhana ala anak kos.
+       - GUNAKAN BUMBU AROMATIK: Bawang merah, bawang putih, bombay, daun bawang, atau rempah yang relevan.
+       - MAIN FLAVOR: Pastikan ada keseimbangan rasa (Gurih, Manis, Asin).
     
-    Output WAJIB JSON dengan struktur ini:
+    2. **AUDIT BAHAN (SANGAT KETAT)**:
+       - Cek setiap langkah. Jika ada kata "Tumis/Goreng", WAJIB ada "Minyak Goreng" atau "Butter" di list ingredients.
+       - Jika ada kata "Rebus", WAJIB ada "Air" di list ingredients.
+       - Jangan lupa bumbu dasar: Garam, Gula, Merica/Lada, Kaldu Jamur/Ayam. Tulis di ingredients!
+    
+    3. **LANGKAH MEMASAK (DETAILED & PRO)**:
+       - DILARANG langkah yang terlalu sedikit/pendek. Minimal 6-10 langkah.
+       - Bagi menjadi fase: [PERSIAPAN BAHAN] -> [PROSES MASAK] -> [PENYAJIAN].
+       - Satu langkah = Satu aksi spesifik (Micro-Steps).
+       - Contoh Pro: "Panaskan wajan hingga berasap sedikit (wok hei) sebelum memasukkan minyak." (Ini instruksi chef asli).
+    
+    4. **DURASI**:
+       - Berikan estimasi waktu (integer menit) yang realistis untuk setiap langkah.
+    
+    Output WAJIB JSON valid:
     {{
-        "dish": "{dish}",
+        "dish": "{dish} Spesial Chef",
         "portion": "1 Orang",
-        "description": "Deskripsi singkat masakan",
+        "description": "Deskripsi masakan yang menggugah selera dengan kata-kata premium...",
         "ingredients": [
-            "Bahan 1 (dengan takaran)",
-            "Bahan 2 (dengan takaran)"
+            "Minyak Goreng (2 sdm)", 
+            "Bawang Putih (2 siung, cincang)",
+            "Dada Ayam (100g, potong dadu)",
+            "Nasi Putih (200g)",
+            "Kecap Manis (1 sdm)",
+            "Garam (1/2 sdt)",
+            "Lada Bubuk (1/4 sdt)",
+            "Telur (1 butir)",
+            "Daun Bawang (iris tipis)"
         ],
         "steps": [
-            {{ "instruction": "Cuci bersih kentang...", "duration_minutes": 5 }},
-            {{ "instruction": "Goreng hingga matang...", "duration_minutes": 10 }}
+            {{ "instruction": "Siapkan semua bahan (Mise en place). Cincang halus bawang putih dan potong ayam.", "duration_minutes": 5 }},
+            {{ "instruction": "Panaskan wajan dengan api besar, tuang minyak goreng.", "duration_minutes": 2 }},
+            {{ "instruction": "Tumis bawang putih hingga harum keemasan.", "duration_minutes": 2 }},
+            {{ "instruction": "Masukkan ayam, masak hingga berubah warna.", "duration_minutes": 3 }},
+            {{ "instruction": "Masukkan nasi, aduk cepat dengan api besar.", "duration_minutes": 3 }},
+            {{ "instruction": "Tambahkan kecap, garam, dan lada. Aduk rata (Koreksi Rasa).", "duration_minutes": 2 }}
         ]
     }}
     """
@@ -53,19 +76,18 @@ def generate_recipe_plan(dish):
 
 # --- FUNGSI 2: REVISI RESEP ---
 def refine_recipe_plan(old_recipe, critique):
-    print(f"{CYAN}[PLANNER AGENT] 🛠️ Merevisi resep sesuai request...{RESET}")
+    print(f"{CYAN}[PLANNER AGENT] 🛠️ Executive Chef merevisi menu...{RESET}")
     
     prompt = f"""
     Konteks: Resep awal "{old_recipe['dish']}".
     Kritik User: "{critique}".
     
-    Tugas: Perbaiki resep.
+    Tugas: Revisi resep agar lebih sempurna.
     
-    ATURAN LANGKAH:
-    - Pecah setiap langkah menjadi SATU AKSI per langkah.
-    - Sertakan "duration_minutes" (integer) di setiap langkah revisi.
-    
-    Output JSON (Struktur sama seperti sebelumnya).
+    ATURAN:
+    1. Pastikan bahan SANGAT LENGKAP (Cek Minyak, Air, Bumbu).
+    2. Langkah harus detail (Step-by-step professional).
+    3. Output JSON sama seperti struktur sebelumnya.
     """
     
     try:

@@ -1,0 +1,56 @@
+{
+    "dish": "Nasi Goreng Spesial Chef",
+    "portion": "1 Orang",
+    "description": "Indulge in our signature Nasi Goreng, a harmonious blend of savory and sweet flavors. Saffron-infused rice is cooked to perfection with crispy fried chicken, tender vegetables, and a hint of spices, finished with a drizzle of golden egg yolk and toasted peanuts.",
+    "ingredients": [
+        "Berau Sesame Oil (2 sdm)",
+        "Eschalot Onion (2 siung, cincang)",
+        "Dada Ayam (100g, potong dadu)",
+        "Saffron-Infused Rice (200g)",
+        "Kecap Manis (1 sdm)",
+        "Garam (1/2 sdt)",
+        "Lada Bubuk (1/4 sdt)",
+        "Egg Yolk (1 butir)",
+        "Toasted Peanuts (iris tipis)",
+        "Scallions (iris tipis)"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan (Mise en place). Cincang halus eschalot onion dan potong ayam.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Panaskan wajan dengan api besar, tuang Berau Sesame Oil. Panaskan hingga berbau wangi dan layu.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Tumis eschalot onion hingga harum keemasan. Hapus api, biarkan sebentar.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Masukkan ayam, masak hingga berubah warna. Pindahkan ayam ke sisi wajan.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Masukkan Saffron-Infused Rice, aduk cepat dengan api besar. Jangan lupa untuk mengaduk rata.",
+            "duration_minutes": 4
+        },
+        {
+            "instruction": "Tambahkan Kecap Manis, Garam, dan Lada Bubuk. Aduk rata (Koreksi Rasa).",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Masukkan Daging Ayam, aduk hingga tercampur rata dengan nasi.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Panaskan wajan dengan api kecil. Tuang Egg Yolk dan biarkan hingga matang.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Tahap Akhir: Aduk semua bahan, tambahkan Toasted Peanuts dan Scallions. Siapkan Nasi Goreng Spesial Chef untuk disajikan.",
+            "duration_minutes": 3
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20Nasi%20Goreng%20Spesial%20Chef%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=90246"
+}

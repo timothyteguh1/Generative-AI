@@ -1,0 +1,22 @@
+{
+    "dish": "kentang goreng",
+    "portion": "1 Orang",
+    "description": "Kentang Goreng, olahan sederhana dan enak yang menggunakan kentang sebagai bahan utama. Dengan rasa gurih dan krispi, Anda pasti ingin membandingkan dengan masakan lainnya.",
+    "ingredients": [
+        "200g Kentang segar",
+        "50g Tepung panir",
+        "20g Garam",
+        "10ml Minyak goreng"
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci bersih kentang dan potong menjadi bulat.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Celupkan kentang ke dalam adonan tepung panir (campur 2 sdm Tepung panir, 1 sdm Garam) dan gulingkan di atas Minyak goreng yang panas. Goreng hingga matang dan krispi.",
+            "duration_minutes": 10
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20kentang%20goreng%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=39085"
+}

@@ -1,0 +1,42 @@
+{
+    "dish": "Kentang Goreng Spesial Chef",
+    "portion": "1 Orang",
+    "description": "A signature dish that will tantalize your taste buds with the perfect balance of sweet, savory, and umami flavors. Crispy fried potatoes served with a hint of smokiness from the bawang putih and a touch of elegance from the daun bawang.",
+    "ingredients": [
+        "Minyak Goreng (4 sdm)",
+        "Bawang Putih (3 siung, cincang)",
+        "Kentang (500g, potong dadu)",
+        "Nasi Putih (200g)",
+        "Kecap Manis (2 sdm)",
+        "Garam (1/2 sdt)",
+        "Lada Bubuk (1/4 sdt)",
+        "Daun Bawang (iris tipis)"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan (Mise en place). Cincang halus bawang putih dan potong kentang.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Panaskan wajan dengan api besar, tuang minyak goreng. Panaskan wajan hingga minyak goreng berbuih sedikit (wok hei).",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Tumis bawang putih hingga harum keemasan. Jangan lupa untuk mengaduk-aduk wajan agar bawang putih tidak gosong.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Masukkan kentang, masak hingga berubah warna dan krispi.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Tambahkan kecap manis, garam, dan lada. Aduk rata (Koreksi Rasa).",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Masukkan daun bawang, aduk cepat dengan api besar.",
+            "duration_minutes": 1
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20Kentang%20Goreng%20Spesial%20Chef%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=71378"
+}

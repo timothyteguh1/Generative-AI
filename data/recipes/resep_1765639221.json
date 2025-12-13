@@ -1,0 +1,30 @@
+{
+    "dish": "kentang goreng",
+    "portion": "1 Orang",
+    "description": "Kreasi kentang gurih dan kriuk dengan resep ini!",
+    "ingredients": [
+        "Garam (1 sdt)",
+        "Kentang (2 buah)",
+        "Minyak Goreng (secukupnya)",
+        "Air (500ml)"
+    ],
+    "steps": [
+        {
+            "instruction": "Cuci kentang hingga bersih",
+            "duration_minutes": 1
+        },
+        {
+            "instruction": "Kupas kulit kentang dan potong-potong menjadi kecil-kecil",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Panaskan minyak goreng secukupnya dalam wajan",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Goreng kentang hingga matang dan kriuk, aduk-aduk supaya tercampur rata",
+            "duration_minutes": 10
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20kentang%20goreng%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=82192"
+}
