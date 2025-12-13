@@ -1,7 +1,7 @@
 import streamlit as st
 from frontend.components import render_chat_message
 from backend.agents.planner import generate_recipe_plan
-from backend.agents.visualizer import generate_and_save_images
+from backend.agents.visualizer import generate_final_dish_image # <-- Import Fungsi Baru
 from backend.agents.nutritionist import analyze_nutrition
 from backend.agents.shopper import generate_shopping_list
 from backend.data_manager import save_recipe
@@ -21,15 +21,15 @@ def render_home_view():
         render_chat_message("user", user_input)
         
         # --- PROSES AI ---
-        with st.spinner("🔥 Chef sedang meracik resep..."):
+        with st.spinner("🔥 Chef sedang meracik resep & menghitung waktu..."):
             recipe_data = generate_recipe_plan(user_input)
         
         if recipe_data:
-            # 1. Download Gambar (Visualizer)
-            with st.spinner("🎨 Menggambar ilustrasi langkah..."):
-                image_paths = generate_and_save_images(recipe_data['dish'], recipe_data['steps'])
-                for i, step in enumerate(recipe_data['steps']):
-                    step['image_path'] = image_paths[i]
+            # 1. Generate SATU Gambar Hasil Akhir (Visualizer)
+            with st.spinner("🎨 Melukis hasil akhir masakan..."):
+                final_image_url = generate_final_dish_image(recipe_data['dish'])
+                # Simpan URL gambar ke dalam data resep
+                recipe_data['final_image'] = final_image_url 
             
             # 2. Hitung Gizi & Belanja
             with st.spinner("🍎 Menghitung gizi & 🛒 Mencari bahan..."):

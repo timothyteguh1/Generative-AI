@@ -1,0 +1,57 @@
+{
+    "dish": "Nasi Goreng dengan Ikan",
+    "portion": "1 Orang",
+    "description": "Nasi goreng dengan ikan adalah hidangan populer yang terdiri dari nasi goreng, ikan goreng, dan berbagai bumbu. Resep ini dapat disajikan sebagai makanan siang atau malam.",
+    "ingredients": [
+        {
+            "name": "Nasi Goreng",
+            "quantity": "100g"
+        },
+        {
+            "name": "Ikan (misal: ikan tenggelam)",
+            "quantity": "200g"
+        },
+        {
+            "name": "Garam",
+            "quantity": "1 sdm"
+        },
+        {
+            "name": "Merica",
+            "quantity": "1/2 sdt"
+        },
+        {
+            "name": "Kacang tanah goreng",
+            "quantity": "50g"
+        },
+        {
+            "name": "Sate ayam goreng",
+            "quantity": "20g"
+        },
+        {
+            "name": "Saus tiram",
+            "quantity": "1 sdm"
+        }
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan bahan-bahan. Cuci bersih ikan dan potong-potong.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Goreng ikan hingga matang. Sisihkan.",
+            "duration_minutes": 10
+        },
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan. Masukkan nasi goreng dan aduk-aduk hingga agak kering.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Masukkan ikan goreng, kacang tanah goreng, sate ayam goreng, garam, merica, dan saus tiram ke dalam wajan. Aduk-aduk hingga semua bahan tercampur.",
+            "duration_minutes": 10
+        },
+        {
+            "instruction": "Sajikan nasi goreng dengan ikan segera."
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20Nasi%20Goreng%20dengan%20Ikan%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=52502"
+}

@@ -1,0 +1,41 @@
+{
+    "dish": "nasi goreng",
+    "portion": "1 Orang",
+    "description": "Nasi Goreng, salah satu makanan populer Indonesia yang terbuat dari nasi goreng dan berbagai bahan tambahan. Resep ini dapat digunakan sebagai makan pagi, siang atau malam.",
+    "ingredients": [
+        "100g nasi goreng kering",
+        "1 butir telur ayam",
+        "2 sdm minyak goreng",
+        "1/2 cangkir wortel parut",
+        "1/2 cangkir buncis parut",
+        "2 sdm kecap manis",
+        "1 sdt garam",
+        "1/4 sdt merica"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan bahan-bahannya. Telur ayam diaduk dengan sendok hingga berbusa.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan, kemudian tuangkan telur ayam dan aduk hingga setengah matang.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Masukkan nasi goreng kering, kecap manis, garam, dan merica. Aduk hingga rata dan berasa enak.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Tambahkan wortel parut dan buncis parut. Aduk hingga tercampur rata.",
+            "duration_minutes": 1
+        },
+        {
+            "instruction": "Angkat nasi goreng dari wajan. Sajikan hangat-hangat."
+        },
+        {
+            "instruction": "Sajikan nasi goreng dengan bawang goreng dan sambal, jika suka.",
+            "duration_minutes": 1
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20nasi%20goreng%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=36270"
+}

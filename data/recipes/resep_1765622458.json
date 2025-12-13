@@ -1,0 +1,30 @@
+{
+    "dish": "nasi goreng",
+    "portion": "1 Orang",
+    "description": "Nasi goreng, adalah salah satu makanan tradisional Indonesia yang terbuat dari nasi yang digoreng dan dicampur dengan berbagai bahan pelengkap.",
+    "ingredients": [
+        "250g nasi hangat",
+        "2 sdm minyak goreng",
+        "1 butir telur, diayak lembut",
+        "1/4 cup wortel, iris tipis",
+        "1/4 cup ayam, suwir-suwir",
+        "1 sdm kecap manis",
+        "1 sdm saus sambal",
+        "Garam, secukupnya"
+    ],
+    "steps": [
+        {
+            "instruction": "Panaskan minyak goreng dalam wajan dan masukkan telur. Ayak-ayak telur hingga setengah matang.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Tambahkan wortel, ayam, kecap manis, saus sambal, dan garam. Aduk-aduk hingga bahan-bahan tercampur rata.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Masukkan nasi hangat dan aduk-aduk hingga tercampur rata dengan bahan-bahan lainnya.",
+            "duration_minutes": 2
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20nasi%20goreng%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=54230"
+}

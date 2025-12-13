@@ -7,11 +7,11 @@ MODEL_NAME = "llama3"
 CYAN = "\033[96m"
 RESET = "\033[0m"
 
-# --- FUNGSI 1: MEMBUAT RESEP (TEKS SAJA) ---
+# --- FUNGSI 1: MEMBUAT RESEP (TEKS + WAKTU) ---
 def generate_recipe_plan(dish):
-    print(f"{CYAN}\n[PLANNER AGENT] 🧠 Meracik resep personal: {dish} (1 Porsi) dengan Ollama...{RESET}")
+    print(f"{CYAN}\n[PLANNER AGENT] 🧠 Meracik resep & estimasi waktu: {dish} (1 Porsi)...{RESET}")
     
-    # --- PERUBAHAN UTAMA DI SINI (PROMPT LEBIH GALAK) ---
+    # --- PROMPT DIPERBARUI UNTUK MEMINTA DURASI WAKTU ---
     prompt = f"""
     Kamu adalah Chef Profesional. Buatkan resep masakan untuk: "{dish}".
     Gunakan Bahasa Indonesia.
@@ -19,15 +19,10 @@ def generate_recipe_plan(dish):
     ATURAN SANGAT PENTING (STRICT RULES):
     1. PORSI: WAJIB UNTUK 1 ORANG (Single Serving).
     2. BAHAN: Harus ada takaran spesifik (misal: "100g", "2 sdm").
-    3. LANGKAH (SANGAT PENTING):
+    3. LANGKAH & WAKTU (SANGAT PENTING):
        - SATU LANGKAH = HANYA SATU AKSI FISIK.
-       - DILARANG menggabungkan dua kegiatan dalam satu nomor.
-       - Contoh SALAH: "Cuci kentang, kupas kulitnya, lalu potong dadu." (Ini 3 aksi).
-       - Contoh BENAR:
-         1. "Cuci bersih kentang dengan air mengalir."
-         2. "Kupas kulit kentang hingga bersih."
-         3. "Potong kentang menjadi bentuk dadu kecil."
-       - Pecah langkah menjadi detail agar mudah difoto per langkahnya.
+       - Berikan estimasi waktu pengerjaan (duration_minutes) dalam Integer untuk setiap langkah.
+       - Jika langkah sangat cepat (misal: sajikan), tulis 1 menit.
     
     Output WAJIB JSON dengan struktur ini:
     {{
@@ -39,8 +34,8 @@ def generate_recipe_plan(dish):
             "Bahan 2 (dengan takaran)"
         ],
         "steps": [
-            {{ "instruction": "Langkah 1 (Satu Aksi)" }},
-            {{ "instruction": "Langkah 2 (Satu Aksi)" }}
+            {{ "instruction": "Cuci bersih kentang...", "duration_minutes": 5 }},
+            {{ "instruction": "Goreng hingga matang...", "duration_minutes": 10 }}
         ]
     }}
     """
@@ -67,8 +62,8 @@ def refine_recipe_plan(old_recipe, critique):
     Tugas: Perbaiki resep.
     
     ATURAN LANGKAH:
-    - Pecah setiap langkah menjadi SATU AKSI per langkah (Single Action per Step).
-    - Jangan gabungkan "Cuci dan Potong" dalam satu langkah. Pisahkan jadi dua langkah.
+    - Pecah setiap langkah menjadi SATU AKSI per langkah.
+    - Sertakan "duration_minutes" (integer) di setiap langkah revisi.
     
     Output JSON (Struktur sama seperti sebelumnya).
     """
