@@ -1,0 +1,81 @@
+{
+    "dish": "Nasi Goreng Simple Spesial Chef",
+    "portion": "1 Orang",
+    "description": "Savor the rich flavors of our signature Nasi Goreng Simple, a harmonious balance of sweet, salty, and savory notes. Crunchy fried onions add a satisfying texture to this delightful dish.",
+    "ingredients": [
+        {
+            "name": "Minyak Goreng",
+            "quantity": 2,
+            "unit": "sdm"
+        },
+        {
+            "name": "Bawang Putih",
+            "quantity": 2,
+            "unit": "siung",
+            "description": "Cincang halus"
+        },
+        {
+            "name": "Dada Ayam",
+            "quantity": 100,
+            "unit": "g",
+            "description": "Potong dadu"
+        },
+        {
+            "name": "Nasi Putih",
+            "quantity": 200,
+            "unit": "g"
+        },
+        {
+            "name": "Kecap Manis",
+            "quantity": 1,
+            "unit": "sdm"
+        },
+        {
+            "name": "Garam",
+            "quantity": 0.5,
+            "unit": "sdt"
+        },
+        {
+            "name": "Lada Bubuk",
+            "quantity": 0.25,
+            "unit": "sdt"
+        },
+        {
+            "name": "Telur",
+            "quantity": 1,
+            "unit": "butir"
+        },
+        {
+            "name": "Daun Bawang",
+            "quantity": 1,
+            "unit": "iris tipis"
+        }
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan (Mise en place). Cincang halus bawang putih dan potong ayam.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Panaskan wajan dengan api besar, tuang minyak goreng. Panaskan hingga berubah warna (wok hei) sebelum memasukkan bahan.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Tumis bawang putih hingga harum keemasan.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Masukkan ayam, masak hingga berubah warna. Cepat-cepat aduk dengan api besar.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Masukkan nasi, aduk cepat dengan api besar. Pastikan nasi tidak terlalu matang.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Tambahkan kecap, garam, dan lada. Aduk rata (Koreksi Rasa). Jika perlu, tambahkan sedikit air untuk mengencerkan.",
+            "duration_minutes": 2
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20Nasi%20Goreng%20Simple%20Spesial%20Chef%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=56503"
+}

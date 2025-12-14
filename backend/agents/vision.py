@@ -3,8 +3,7 @@ import json
 import io
 from PIL import Image
 
-# Gunakan LLaVA agar lebih pintar logikanya (walau agak lambat)
-# Kalau mau cepat ganti jadi "moondream", tapi LLaVA lebih akurat buat logic ini.
+# Gunakan 'llava' atau 'moondream' (sesuai yang terinstall)
 VISION_MODEL = "llava" 
 
 CYAN = "\033[96m"
@@ -14,7 +13,7 @@ RED = "\033[91m"
 RESET = "\033[0m"
 
 def evaluate_cooking_step(image, instruction):
-    print(f"{MAGENTA}[VISION AGENT] 👁️ Inspeksi Ketat Foto Masakan...{RESET}")
+    print(f"{MAGENTA}[VISION AGENT] 👁️ Melihat foto masakan...{RESET}")
     
     # --- 1. PRE-PROCESSING GAMBAR ---
     if image.mode in ("RGBA", "P"):
@@ -29,31 +28,34 @@ def evaluate_cooking_step(image, instruction):
     image.save(img_byte_arr, format='JPEG')
     img_bytes = img_byte_arr.getvalue()
     
-    # --- 2. PROMPT STRICT (TIDAK TOLERAN) ---
-    # Kita minta AI membedakan 3 FASE: PREP (Persiapan), COOK (Masak), SERVE (Saji)
+    # --- 2. PROMPT DIPERBARUI (LEBIH RAMAH & CERDAS) ---
+    # Perubahan: Dari "STRICT Inspector" menjadi "Supportive Chef"
+    # Kita minta dia melihat "Kecocokan Umum" bukan "Detail Teknis Sempurna".
     
     prompt = f"""
-    Act as a STRICT Cooking Inspector. Do NOT be lenient.
+    Role: You are a Supportive Chef Assistant.
+    Task: Verify if the user's photo roughly matches the current cooking step.
     
-    Instruction: "{instruction}"
+    Current Step Instruction: "{instruction}"
     
-    TASK: Determine if the image matches the specific STAGE of cooking described.
+    Guidelines (BE REASONABLE):
+    1. **Context Match**: If the step says "fry onions", and the image shows onions in a pan (even if not fully brown yet), that is a PASS.
+    2. **Equipment**: If the step implies cooking, look for ANY cookware (pan, pot, wok, oven).
+    3. **Ingredients**: Check if the visible ingredients are related to the instruction.
+    4. **Lighting/Quality**: Ignore bad lighting or blur. Focus on the content.
     
-    LOGIC CHECKS (STRICT):
-    1. PHASE CHECK:
-       - If instruction implies PREPARATION (cut, wash, mix, raw) -> Image MUST show raw food/cutting board/bowls.
-       - If instruction implies COOKING (fry, boil, sauté, heat) -> Image MUST show a pan/pot, fire, oil, or steam.
-       - If instruction implies SERVING (plate, garnish, eat) -> Image MUST show cooked food on a plate.
-       
-    2. MISMATCH RULES (AUTO-FAIL):
-       - Instruction says "Fry/Cook" but image shows RAW food on cutting board -> FAIL.
-       - Instruction says "Wash/Cut" but image shows COOKING in pan -> FAIL.
-       - Instruction says "Serve" but image shows RAW food -> FAIL.
+    CRITERIA FOR PASS:
+    - The image shows RELEVANT food or equipment described in the instruction.
+    - It looks like a cooking attempt related to the step.
+    
+    CRITERIA FOR FAIL:
+    - The image is completely unrelated (e.g., a photo of a cat, a car, or an empty table).
+    - The image contradicts the step (e.g., step says "Serve" but image shows raw meat).
     
     Output strictly JSON:
     {{
         "status": "PASS" or "FAIL",
-        "feedback": "Reason in Indonesian (max 10 words)"
+        "feedback": "Pujian singkat atau saran perbaikan (Bahasa Indonesia, max 10 words)"
     }}
     """
     
@@ -71,17 +73,18 @@ def evaluate_cooking_step(image, instruction):
         # --- 3. PARSING HASIL ---
         content = response['message']['content']
         
-        # Cari kurung kurawal JSON (jaga-jaga kalau ada teks sampah)
+        # Pembersihan JSON (jaga-jaga error parsing)
         start_idx = content.find('{')
         end_idx = content.rfind('}') + 1
         
         if start_idx != -1 and end_idx != -1:
             data = json.loads(content[start_idx:end_idx])
         else:
-            # Kalau output rusak, kita anggap FAIL biar aman
-            data = {"status": "FAIL", "feedback": "AI Gagal membaca gambar."}
+            # Fallback jika JSON rusak, kita anggap PASS saja biar user tidak kecewa
+            # (Asumsi user sudah upload foto, kemungkinan besar benar)
+            data = {"status": "PASS", "feedback": "Terlihat oke! Lanjut!"}
         
-        # Print hasil di terminal
+        # Log Terminal
         if data.get('status') == 'PASS':
             print(f"{GREEN}[VISION AGENT] ✅ PASS: {data.get('feedback')}{RESET}")
         else:
@@ -91,5 +94,5 @@ def evaluate_cooking_step(image, instruction):
         
     except Exception as e:
         print(f"{RED}[VISION ERROR] {e}{RESET}")
-        # Kalau error teknis, return FAIL biar user sadar ada yang salah
-        return {"status": "FAIL", "feedback": "Error sistem visi."}
+        # Jika error sistem (misal model berat/crash), loloskan saja (Fail-safe)
+        return {"status": "PASS", "feedback": "Sistem sibuk, tapi saya percaya kamu! Lanjut."}

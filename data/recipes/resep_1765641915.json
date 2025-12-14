@@ -1,0 +1,47 @@
+{
+    "dish": "Nasi Goreng Spesial Chef",
+    "portion": "1 Orang",
+    "description": "Indulge in our signature Nasi Goreng, a harmonious blend of savory and sweet flavors, with crispy fried rice, tender chicken, and aromatic spices. This dish is sure to delight your senses.",
+    "ingredients": [
+        "Minyak Goreng (4 sdm)",
+        "Bawang Putih (3 siung, cincang)",
+        "Dada Ayam (150g, potong dadu)",
+        "Nasi Putih (300g)",
+        "Kecap Manis (2 sdm)",
+        "Garam (1 sdt)",
+        "Lada Bubuk (1/2 sdt)",
+        "Telur (2 butir)",
+        "Daun Bawang (iris tipis)"
+    ],
+    "steps": [
+        {
+            "instruction": "Siapkan semua bahan (Mise en place). Cincang halus bawang putih dan potong ayam.",
+            "duration_minutes": 5
+        },
+        {
+            "instruction": "Panaskan wajan dengan api besar, tuang minyak goreng. Panaskan wajan hingga berasap sedikit sebelum memasukkan ayam.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Tumis bawang putih hingga harum keemasan. Jika bawang sudah coklat, tambahkan minyak goreng secukupnya untuk menghilangkan rasa gurih.",
+            "duration_minutes": 4
+        },
+        {
+            "instruction": "Masukkan ayam, masak hingga berubah warna. Cepat-cepat aduk ayam agar tidak gosong.",
+            "duration_minutes": 3
+        },
+        {
+            "instruction": "Panaskan wajan kembali dengan api besar, tuang telur yang sudah diayak sebelumnya. Kocok cepat-cepah hingga telur matang.",
+            "duration_minutes": 2
+        },
+        {
+            "instruction": "Masukkan nasi putih, aduk cepat dengan api besar. Pastikan nasi tidak gosong dan berisi aroma wangi.",
+            "duration_minutes": 4
+        },
+        {
+            "instruction": "Tambahkan kecap manis, garam, lada, dan cincang daun bawang. Aduk rata (Koreksi Rasa) hingga bumbu meresap sempurna.",
+            "duration_minutes": 3
+        }
+    ],
+    "final_image": "https://image.pollinations.ai/prompt/Professional%20food%20photo%20of%20Nasi%20Goreng%20Spesial%20Chef%2C%20final%20dish%2C%20restaurant%20plating%2C%20bokeh%20background%2C%20garnished%20perfectly%2C%20hyper-realistic%2C%208k%2C%20cinematic%20lighting%2C%20food%20photography%2C%20sharp%20focus%2C%20f/1.8%20aperture%2C%20delicious%20looking?width=1024&height=768&model=flux&nologo=true&seed=66829"
+}
